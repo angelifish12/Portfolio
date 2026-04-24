@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Angelina Chen — Marketing & Media</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=Space+Mono&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    :root {
+      --cream: #faf7f2;
+      --warm-white: #f4fbff;
+      --ink: #46a7b4;
+      --brown: #9263a9;
+      --rose: #ab78b4;
+      --rose-light: #f0c4bf;
+      --sage: #7a9e8e;
+      --sage-light: #c4dbd4;
+      --gold: #da96f9;
+      --gold-light: #d6d2ef;
+      --muted: #8a7a6e;
+      --border: rgba(199, 77, 255, 0.12);
+      --font-display: 'Playfair Display', serif;
+      --font-body: 'DM Sans', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 300;
+      color: var(--ink);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.5;
+    }
+
+    /* TICKER */
+    .ticker-wrap {
+      background: var(--ink);
+      overflow: hidden;
+      padding: 0.6rem 0;
+      position: relative;
+      z-index: 50;
+    }
+
+    .ticker-inner {
+      display: flex;
+      white-space: nowrap;
+    }
+
+    .ticker-item {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--gold);
+      padding: 0 2rem;
+      flex-shrink: 0;
+      letter-spacing: 0.1em;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 1.25rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.3s, border-bottom 0.3s;
+    }
+
+    nav.scrolled {
+      background: rgba(250, 247, 242, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--ink);
+      font-style: italic;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--rose);
+    }
+
+    .nav-cta {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      background: var(--gold-light);
+      border: 1.5px solid var(--gold);
+      padding: 0.5rem 1.25rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold);
+      transform: translateY(-1px);
+    }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      padding: 10rem 3rem 5rem 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      color: var(--rose);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.1s ease forwards;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 1px;
+      background: var(--rose);
+    }
+
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 6vw, 5.5rem);
+      line-height: 1.05;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s ease forwards;
+    }
+
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--rose);
+    }
+
+    .hero-h1-sub {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.3s ease forwards;
+    }
+
+    .hero-desc {
+      font-size: 0.95rem;
+      color: var(--brown);
+      line-height: 1.9;
+      max-width: 380px;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.4s ease forwards;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.5s ease forwards;
+    }
+
+    .hero-stat-num {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .hero-stat-lbl {
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 0.1rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.6s ease forwards;
+    }
+
+    .btn-primary {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      background: var(--ink);
+      color: var(--cream);
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--brown);
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border: 1.5px solid var(--border);
+      color: var(--brown);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--rose);
+      color: var(--rose);
+      transform: translateY(-2px);
+    }
+
+    .hero-right {
+      background: var(--warm-white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-right-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 3rem;
+    }
+
+    .hero-badge-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.7s ease forwards;
+    }
+
+    .hero-badge {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      padding: 0.4rem 0.9rem;
+      border: 1px solid var(--border);
+      color: var(--brown);
+      background: var(--cream);
+    }
+
+    .hero-badge.active {
+      background: var(--rose);
+      color: white;
+      border-color: var(--rose);
+    }
+
+    .hero-deco-text {
+      font-family: var(--font-display);
+      font-size: 9rem;
+      font-weight: 700;
+      font-style: italic;
+      color: rgba(74, 55, 40, 0.05);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-location {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.8s ease forwards;
+    }
+
+    .hero-location::before {
+      content: '◎';
+      color: var(--sage);
+    }
+
+    .hero-accent-card {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      border: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      width: 260px;
+      box-shadow: 0 20px 60px rgba(74, 55, 40, 0.1);
+      opacity: 0;
+      animation: fadeUp 0.8s 0.9s ease forwards;
+    }
+
+    .hero-accent-card-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-accent-card-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-accent-card-sub {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* LAYOUT */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    section {
+      padding: 7rem 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    .section-num {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      padding-top: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .section-title-group {
+      flex: 1;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--rose);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    h2.section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+
+    h2.section-title em {
+      font-style: italic;
+      color: var(--rose);
+    }
+
+    /* WORK TEASER */
+    #work-teaser {
+      background: var(--ink);
+      padding: 5rem 0;
+    }
+
+    #work-teaser .section-eyebrow {
+      color: var(--gold);
+    }
+
+    #work-teaser h2.section-title {
+      color: var(--cream);
+    }
+
+    #work-teaser h2.section-title em {
+      color: var(--gold);
+    }
+
+    #work-teaser .section-num {
+      color: rgba(250, 247, 242, 0.3);
+    }
+
+    .work-teaser-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: rgba(250, 247, 242, 0.08);
+      border: 1.5px solid rgba(250, 247, 242, 0.08);
+      margin-bottom: 2.5rem;
+    }
+
+    .work-teaser-card {
+      background: var(--ink);
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-decoration: none;
+      display: block;
+      color: inherit;
+      min-height: 240px;
+    }
+
+    .work-teaser-card:hover {
+      background: var(--brown);
+    }
+
+    .work-teaser-card:hover .wt-arrow {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    /* Synthetic Body video card */
+    .work-teaser-card.has-video {
+      padding: 0;
+    }
+
+    .wt-video-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.32;
+      transition: opacity 0.4s;
+      z-index: 0;
+    }
+
+    .work-teaser-card.has-video:hover .wt-video-bg {
+      opacity: 0.55;
+    }
+
+    .wt-video-inner {
+      position: relative;
+      z-index: 1;
+      padding: 2.5rem 2rem;
+      height: 100%;
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .wt-arrow {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      color: var(--gold);
+      opacity: 0;
+      transform: translate(-4px, 4px);
+      transition: opacity 0.3s, transform 0.3s;
+      z-index: 2;
+    }
+
+    .wt-tag {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .wt-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .wt-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .wt-desc {
+      font-size: 0.8rem;
+      color: rgba(250, 247, 242, 0.5);
+      line-height: 1.75;
+    }
+
+    .work-teaser-cta {
+      text-align: center;
+    }
+
+    .btn-work {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.9rem 2.5rem;
+      background: transparent;
+      color: var(--gold);
+      border: 1.5px solid var(--gold);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-work:hover {
+      background: var(--gold);
+      color: var(--ink);
+      transform: translateY(-2px);
+    }
+
+    /* EXPERIENCE */
+    #experience {
+      background: var(--warm-white);
+    }
+
+    .exp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+    }
+
+    .exp-card {
+      background: var(--warm-white);
+      padding: 2.5rem 2rem;
+      transition: background 0.3s;
+    }
+
+    .exp-card:hover {
+      background: var(--cream);
+    }
+
+    .exp-period {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      color: var(--sage);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .exp-company {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+
+    .exp-role {
+      font-size: 0.8rem;
+      color: var(--rose);
+      font-weight: 400;
+      margin-bottom: 1rem;
+      letter-spacing: 0.03em;
+    }
+
+    .exp-location {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.08em;
+    }
+
+    .exp-bullets {
+      list-style: none;
+    }
+
+    .exp-bullets li {
+      font-size: 0.82rem;
+      color: var(--brown);
+      line-height: 1.75;
+      padding-left: 1rem;
+      position: relative;
+      margin-bottom: 0.45rem;
+    }
+
+    .exp-bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--rose-light);
+    }
+
+    /* WINS */
+    #wins {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    #wins .section-eyebrow {
+      color: var(--gold);
+    }
+
+    #wins h2.section-title {
+      color: var(--cream);
+    }
+
+    #wins h2.section-title em {
+      color: var(--gold);
+    }
+
+    #wins .section-num {
+      color: rgba(250, 247, 242, 0.3);
+    }
+
+    .wins-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5px;
+      background: rgba(250, 247, 242, 0.08);
+      border: 1.5px solid rgba(250, 247, 242, 0.08);
+      margin-bottom: 4rem;
+    }
+
+    .win-card {
+      background: var(--ink);
+      padding: 3rem 2rem;
+      text-align: center;
+      transition: background 0.3s;
+    }
+
+    .win-card:hover {
+      background: var(--brown);
+    }
+
+    .win-num {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+
+    .win-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: rgba(250, 247, 242, 0.5);
+      text-transform: uppercase;
+    }
+
+    .wins-context {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .context-card {
+      border: 1px solid rgba(250, 247, 242, 0.1);
+      padding: 2rem;
+    }
+
+    .context-label {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .context-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--cream);
+      margin-bottom: 0.6rem;
+    }
+
+    .context-desc {
+      font-size: 0.82rem;
+      color: rgba(250, 247, 242, 0.55);
+      line-height: 1.8;
+    }
+
+    /* SKILLS */
+    #skills {
+      background: var(--cream);
+    }
+
+    .skills-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .skill-group {
+      margin-bottom: 2.5rem;
+    }
+
+    .skill-group-label {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .skill-group-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      font-size: 0.78rem;
+      padding: 0.4rem 0.9rem;
+      border: 1px solid var(--border);
+      color: var(--brown);
+      background: white;
+      transition: all 0.2s;
+    }
+
+    .skill-tag:hover {
+      background: var(--rose);
+      color: white;
+      border-color: var(--rose);
+    }
+
+    .edu-card {
+      background: var(--warm-white);
+      border: 1.5px solid var(--border);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .edu-card::before {
+      content: 'NYU';
+      position: absolute;
+      right: -1rem;
+      top: -1rem;
+      font-family: var(--font-display);
+      font-size: 7rem;
+      font-weight: 700;
+      font-style: italic;
+      color: rgba(74, 55, 40, 0.04);
+      line-height: 1;
+    }
+
+    .edu-label {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      color: var(--sage);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .edu-school {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+
+    .edu-degree {
+      font-size: 0.85rem;
+      color: var(--brown);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+
+    .edu-gpa {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--rose);
+      margin-bottom: 0.5rem;
+    }
+
+    .edu-away {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .lang-row {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .lang-pill {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      padding: 0.35rem 0.85rem;
+      background: var(--gold-light);
+      border: 1px solid var(--gold);
+      color: var(--brown);
+    }
+
+    /* MEDIA */
+    #media {
+      background: var(--warm-white);
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+    }
+
+    .media-card {
+      background: var(--warm-white);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .media-card:hover {
+      background: var(--cream);
+    }
+
+    .media-platform {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .platform-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    .platform-dot.tiktok {
+      background: var(--ink);
+    }
+
+    .platform-dot.xhs {
+      background: var(--rose);
+    }
+
+    .platform-dot.photo {
+      background: var(--gold);
+    }
+
+    .media-card-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+
+    .media-card-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
+    }
+
+    .media-stat {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--rose);
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+
+    .media-stat-lbl {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* PHOTO THUMBNAILS */
+    .photo-thumbs {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .photo-thumb {
+      width: 58px;
+      height: 58px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .photo-thumb:hover {
+      border-color: var(--gold);
+      transform: scale(1.06);
+    }
+
+    /* LIGHTBOX */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 18, 9, 0.94);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      backdrop-filter: blur(10px);
+    }
+
+    .lightbox-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .lightbox-img {
+      max-width: 86vw;
+      max-height: 80vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: rgba(250, 247, 242, 0.5);
+      text-transform: uppercase;
+      cursor: pointer;
+      background: none;
+      border: 1px solid rgba(250, 247, 242, 0.15);
+      padding: 0.45rem 1rem;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .lightbox-close:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.3rem;
+      color: rgba(250, 247, 242, 0.4);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 1rem;
+      transition: color 0.2s;
+      font-family: var(--font-mono);
+    }
+
+    .lightbox-nav:hover {
+      color: var(--gold);
+    }
+
+    .lightbox-prev {
+      left: 1.5rem;
+    }
+
+    .lightbox-next {
+      right: 1.5rem;
+    }
+
+    .lightbox-caption {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      color: rgba(250, 247, 242, 0.3);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* LEADERSHIP */
+    #leadership {
+      background: var(--cream);
+    }
+
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .leadership-card {
+      border: 1px solid var(--border);
+      padding: 2rem;
+      background: white;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .leadership-card:hover {
+      border-color: var(--rose);
+      transform: translateY(-4px);
+    }
+
+    .lship-period {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      color: var(--sage);
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .lship-role {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+
+    .lship-org {
+      font-size: 0.78rem;
+      color: var(--rose);
+      margin-bottom: 0.75rem;
+    }
+
+    .lship-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* CONTACT */
+    #contact {
+      background: var(--ink);
+      color: var(--cream);
+      text-align: center;
+      padding: 8rem 0;
+    }
+
+    .contact-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-h2 em {
+      font-style: italic;
+      color: var(--rose);
+    }
+
+    .contact-sub {
+      font-size: 0.95rem;
+      color: rgba(250, 247, 242, 0.5);
+      margin-bottom: 3rem;
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+    }
+
+    .contact-email {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-style: italic;
+      color: var(--cream);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(250, 247, 242, 0.2);
+      padding-bottom: 0.2rem;
+      transition: color 0.2s, border-color 0.2s;
+      display: inline-block;
+      margin-bottom: 3rem;
+    }
+
+    .contact-email:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.6rem 1.5rem;
+      border: 1px solid rgba(250, 247, 242, 0.15);
+      color: rgba(250, 247, 242, 0.6);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .contact-link:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(250, 247, 242, 0.08);
+      text-align: center;
+      padding: 1.5rem 2rem;
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      color: rgba(250, 247, 242, 0.25);
+      text-transform: uppercase;
+    }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.3s;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      #hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero-right {
+        display: none;
+      }
+
+      .hero-left {
+        padding: 9rem 2.5rem 4rem;
+      }
+
+      .exp-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .wins-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .wins-context {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .media-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .leadership-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .work-teaser-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .container {
+        padding: 0 1.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .wins-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      section {
+        padding: 4.5rem 0;
+      }
+
+      .hero-stats {
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button class="lightbox-close" id="lb-close">✕ Close</button>
+    <button class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Previous photo">←</button>
+    <img class="lightbox-img" id="lb-img" src="" alt="Photography by Angelina Chen" />
+    <button class="lightbox-nav lightbox-next" id="lb-next" aria-label="Next photo">→</button>
+    <div class="lightbox-caption" id="lb-caption"></div>
+  </div>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker-inner" id="ticker"></div>
+  </div>
+
+  <!-- NAV -->
+  <nav id="nav" role="navigation">
+    <a href="index.html" class="nav-logo">Angelina Chen</a>
+    <ul class="nav-links">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#wins">Results</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#media">Media</a></li>
+      <li><a href="work.html">Work ↗</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Say Hello →</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" aria-label="Introduction">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Available for Marketing Internships · 2026</div>
+      <h1 class="hero-h1">Angelina <em>Chen</em></h1>
+      <div class="hero-h1-sub">Marketing & Media</div>
+      <p class="hero-desc">
+        NYU Media, Culture, and Communication student with hands-on experience at Condé Nast and international art
+        auction houses. I build brands through content, data, and storytelling that connects — across TikTok,
+        Xiaohongshu, Instagram, Facebook, and beyond.
+      </p>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">549K</div>
+          <div class="hero-stat-lbl">TikTok Likes</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">1M+</div>
+          <div class="hero-stat-lbl">Campaign Views</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">3.86</div>
+          <div class="hero-stat-lbl">GPA · Dean's List</div>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="work.html" class="btn-primary">View My Work</a>
+        <a href="#contact" class="btn-ghost">Get in Touch</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-deco-text">AC</div>
+      <div class="hero-right-inner">
+        <div class="hero-accent-card">
+          <div class="hero-accent-card-label">Latest Role</div>
+          <div class="hero-accent-card-title">Consumer Marketing Intern</div>
+          <div class="hero-accent-card-sub">Condé Nast · Taipei, Taiwan · 2025</div>
+        </div>
+        <div class="hero-badge-grid">
+          <span class="hero-badge active">Condé Nast</span>
+          <span class="hero-badge">Ravenel Art Group</span>
+          <span class="hero-badge">Nada Holdings</span>
+          <span class="hero-badge">NYU Steinhardt</span>
+          <span class="hero-badge">NYU Paris '25</span>
+          <span class="hero-badge">NYU Shanghai '25</span>
+          <span class="hero-badge">PhotoVogue Featured</span>
+          <span class="hero-badge">Dean's List x3</span>
+        </div>
+        <div class="hero-location">Manhattan, NY · Open to Remote</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK TEASER -->
+  <section id="work-teaser">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-num">00</div>
+        <div class="section-title-group">
+          <div class="section-eyebrow">Selected Projects</div>
+          <h2 class="section-title">Things I've <em>made</em></h2>
+        </div>
+      </div>
+
+      <div class="work-teaser-grid">
+
+        <!-- Dear Dream Me -->
+        <a href="https://angelifish12.github.io/CClab/project-b/" target="_blank" rel="noopener"
+          class="work-teaser-card reveal">
+          <span class="wt-arrow">↗</span>
+          <div class="wt-tag">Interactive · ml5.js</div>
+          <div class="wt-title">Dear Dream <em>Me</em></div>
+          <div class="wt-desc">A live face modification app using p5.js and ml5 FaceMesh — exploring beauty, self-image,
+            and digital editing culture through hands-on interaction.</div>
+        </a>
+
+        <!-- Tooth Fairy -->
+        <a href="https://angelifish12.github.io/CommLab/tooth-fairy/" target="_blank" rel="noopener"
+          class="work-teaser-card reveal reveal-delay-1">
+          <span class="wt-arrow">↗</span>
+          <div class="wt-tag">Web Story · JavaScript</div>
+          <div class="wt-title">When the Tooth <em>Dropped</em></div>
+          <div class="wt-desc">A reimagining of the tooth fairy myth as an immersive scroll-based web experience with
+            sound design and playful interaction.</div>
+        </a>
+
+        <!-- Synthetic Body — video background -->
+        <div class="work-teaser-card has-video reveal reveal-delay-2">
+          <span class="wt-arrow" style="color:var(--sage-light)">↗</span>
+          <video class="wt-video-bg" autoplay muted loop playsinline poster="assets/hand.png">
+            <source src="assets/synthetic_body.mp4" type="video/mp4">
+          </video>
+          <div class="wt-video-inner">
+            <div class="wt-tag" style="color:var(--sage-light)">3D · Rhino · Blender</div>
+            <div class="wt-title">Synthetic <em>Body</em></div>
+            <div class="wt-desc">Parametric 3D explorations of the human form — branching structures, support systems,
+              and organic geometry at the intersection of body and machine.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="work-teaser-cta reveal">
+        <a href="work.html" class="btn-work">View Full Portfolio →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-num">01</div>
+        <div class="section-title-group">
+          <div class="section-eyebrow">Work History</div>
+          <h2 class="section-title">Real-world <em>experience</em></h2>
+        </div>
+      </div>
+      <div class="exp-grid">
+        <div class="exp-card reveal">
+          <div class="exp-period">Jun 2025 – Aug 2025</div>
+          <div class="exp-company">Condé Nast</div>
+          <div class="exp-role">Consumer Marketing Intern</div>
+          <div class="exp-location">◎ Taipei, Taiwan</div>
+          <ul class="exp-bullets">
+            <li>Drove 1M+ cumulative views across GQ Style Fest editorial and commercial campaigns</li>
+            <li>Grew Instagram by 1,000+ followers in one week using platform-native copy and timing tests</li>
+            <li>Owned social calendars, copy, scheduling, and community moderation targeting Gen Z</li>
+            <li>Analyzed performance via Google Analytics and Meta Business Suite; implemented weekly optimizations</li>
+            <li>Researched micro-community leaders; presented partnership potentials to senior staff</li>
+            <li>Scripted artist ID lines and edited short-form videos achieving 1M+ cross-platform views</li>
+          </ul>
+        </div>
+        <div class="exp-card reveal reveal-delay-1">
+          <div class="exp-period">Nov 2023 – Dec 2023</div>
+          <div class="exp-company">Nada Holdings</div>
+          <div class="exp-role">Licensing & Market Intern</div>
+          <div class="exp-location">◎ Taipei, Taiwan</div>
+          <ul class="exp-bullets">
+            <li>Evaluated 500+ anime titles and built a ranking system to forecast audience potential</li>
+            <li>Briefed licensing team with data-backed recommendations</li>
+            <li>Sourced Japan-language intelligence and identified a Taiwan comic IP for cooperation</li>
+            <li>Facilitated cross-border partnership discussions between Taiwan and Japan markets</li>
+          </ul>
+        </div>
+        <div class="exp-card reveal reveal-delay-2">
+          <div class="exp-period">Aug 2023 – Oct 2023</div>
+          <div class="exp-company">Ravenel Art Group</div>
+          <div class="exp-role">Marketing Intern</div>
+          <div class="exp-location">◎ Taipei, Taiwan</div>
+          <ul class="exp-bullets">
+            <li>Reframed Instagram content to trend-anchored themes, lifting average engagement 5×</li>
+            <li>Broadened reach to younger demographics through targeted content strategy</li>
+            <li>Supported biannual auction logistics, preview events, and artwork photography QC</li>
+            <li>Produced bilingual (Chinese/English) bios for 50+ artists for digital and print catalogs</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WINS -->
+  <section id="wins">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-num">02</div>
+        <div class="section-title-group">
+          <div class="section-eyebrow">By The Numbers</div>
+          <h2 class="section-title">Results that <em>speak</em></h2>
+        </div>
+      </div>
+      <div class="wins-grid">
+        <div class="win-card reveal">
+          <div class="win-num">1M+</div>
+          <div class="win-label">Campaign Views at Condé Nast</div>
+        </div>
+        <div class="win-card reveal reveal-delay-1">
+          <div class="win-num">5×</div>
+          <div class="win-label">Engagement lift at Ravenel</div>
+        </div>
+        <div class="win-card reveal reveal-delay-2">
+          <div class="win-num">549K</div>
+          <div class="win-label">TikTok Likes Earned</div>
+        </div>
+        <div class="win-card reveal reveal-delay-3">
+          <div class="win-num">500+</div>
+          <div class="win-label">Anime Titles Evaluated</div>
+        </div>
+      </div>
+      <div class="wins-context">
+        <div class="context-card reveal">
+          <div class="context-label">Campaign Highlight</div>
+          <div class="context-title">GQ Style Fest — Condé Nast</div>
+          <div class="context-desc">Led end-to-end social execution for editorial and commercial campaigns. Owned Gen
+            Z-targeted copy, timing strategy, and community moderation. Grew followers by 1,000+ in a single week.</div>
+        </div>
+        <div class="context-card reveal reveal-delay-1">
+          <div class="context-label">Content Strategy Win</div>
+          <div class="context-title">Ravenel Audience Expansion</div>
+          <div class="context-desc">Shifted Ravenel's Instagram strategy from existing collectors to younger
+            demographics by incorporating trending themes like "Dopamine Dressing" — resulting in a 5× average
+            engagement increase.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS & EDUCATION -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-num">03</div>
+        <div class="section-title-group">
+          <div class="section-eyebrow">Toolkit & Background</div>
+          <h2 class="section-title">Skills & <em>education</em></h2>
+        </div>
+      </div>
+      <div class="skills-layout">
+        <div>
+          <div class="skill-group reveal">
+            <div class="skill-group-label">Marketing</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Social Media Strategy</span><span class="skill-tag">Content Creation</span><span
+                class="skill-tag">Community Management</span><span class="skill-tag">Campaign Execution</span><span
+                class="skill-tag">Brand Research</span><span class="skill-tag">Influencer Research</span><span
+                class="skill-tag">Competitor Analysis</span><span class="skill-tag">Gen Z Marketing</span>
+            </div>
+          </div>
+          <div class="skill-group reveal reveal-delay-1">
+            <div class="skill-group-label">Platforms & Tools</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Google Analytics</span><span class="skill-tag">Meta Business Suite</span><span
+                class="skill-tag">Instagram</span><span class="skill-tag">TikTok</span><span
+                class="skill-tag">Xiaohongshu</span><span class="skill-tag">Excel (Pivot Tables)</span><span
+                class="skill-tag">Adobe Ps / Ai / Lr</span><span class="skill-tag">CapCut</span><span
+                class="skill-tag">SPSS</span><span class="skill-tag">HTML / JS (basic)</span><span
+                class="skill-tag">Rhinoceros 3D</span><span class="skill-tag">Blender</span><span
+                class="skill-tag">Grasshopper</span>
+            </div>
+          </div>
+          <div class="skill-group reveal reveal-delay-2">
+            <div class="skill-group-label">Domains</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Anime & Entertainment</span><span class="skill-tag">Luxury & Art</span><span
+                class="skill-tag">Media Publishing</span><span class="skill-tag">Fashion</span><span
+                class="skill-tag">Food & Lifestyle</span><span class="skill-tag">Short-form Video</span><span
+                class="skill-tag">3D & Spatial Design</span>
+            </div>
+          </div>
+          <div class="lang-row reveal reveal-delay-3">
+            <span class="lang-pill">Mandarin — Native</span><span class="lang-pill">English — Native</span><span
+              class="lang-pill">Japanese — Elementary</span><span class="lang-pill">French — Elementary</span>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <div class="edu-card">
+            <div class="edu-label">Education</div>
+            <div class="edu-school">New York University</div>
+            <div class="edu-degree">B.S., Media, Culture & Communication<br>Minors: Business of Entertainment, Media &
+              Technology; Interactive Media Arts</div>
+            <div class="edu-gpa">GPA 3.86 · Dean's List (Spring, Summer, Fall 2024)</div>
+            <div class="edu-away">Study Away: NYU Paris, Spring 2025 (Dean's List)<br>Study Away: NYU Shanghai, Fall
+              2025 (Dean's List)<br>Expected Graduation: May 2027</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEDIA -->
+  <section id="media">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-num">04</div>
+        <div class="section-title-group">
+          <div class="section-eyebrow">Content & Media</div>
+          <h2 class="section-title">Personal <em>platforms</em></h2>
+        </div>
+      </div>
+      <div class="media-grid">
+
+        <!-- TikTok -->
+        <a href="https://www.tiktok.com/@angelinafish12" target="_blank" rel="noopener" class="media-card reveal">
+          <div class="media-platform"><span class="platform-dot tiktok"></span>TikTok · @angelinafish12</div>
+          <div class="media-card-title">Short-Form Video Creator</div>
+          <div class="media-card-desc">Produces trend-driven, lifestyle content spanning dance challenges, campus life,
+            and cultural moments. Experience collaborating with others for higher reach and engagement.</div>
+          <div class="media-stat">10.2K</div>
+          <div class="media-stat-lbl">Followers · 549.3K Likes</div>
+        </a>
+
+        <!-- Xiaohongshu -->
+        <a href="https://xhslink.com/m/6Pjq8dfgeCU" target="_blank" rel="noopener"
+          class="media-card reveal reveal-delay-1">
+          <div class="media-platform"><span class="platform-dot xhs"></span>Xiaohongshu (Red Note)</div>
+          <div class="media-card-title">Food & Lifestyle Blogger</div>
+          <div class="media-card-desc">Curates restaurant reviews, café guides, and food photography across Taipei, New
+            York, and Japan. Posts with 47K+ views. Focuses on authentic, local storytelling for both locals and
+            tourists.</div>
+          <div class="media-stat">47K+</div>
+          <div class="media-stat-lbl">Views on top post</div>
+        </a>
+
+        <!-- Photography — lightbox trigger -->
+        <div class="media-card reveal reveal-delay-2" id="photo-card" role="button" tabindex="0"
+          aria-label="Open photography gallery">
+          <div class="media-platform"><span class="platform-dot photo"></span>PhotoVogue · VSCO</div>
+          <div class="media-card-title">Photographer</div>
+          <div class="media-card-desc">Work featured on PhotoVogue under the "Culture" theme. Ricoh GR2 & iPhone 13 Pro.
+            Click a thumbnail to view full image.</div>
+          <div class="photo-thumbs">
+            <img class="photo-thumb" src="assets/image1.png" alt="Photo 1" data-index="0">
+            <img class="photo-thumb" src="assets/image2.png" alt="Photo 2" data-index="1">
+            <img class="photo-thumb" src="assets/image4.png" alt="Photo 3" data-index="2">
+            <img class="photo-thumb" src="assets/image6.png" alt="Photo 4" data-index="3">
+            <img class="photo-thumb" src="assets/image7.png" alt="Photo 5" data-index="4">
+
+
+
+          </div>
+          <div class="media-stat" style="margin-top:1rem">Featured</div>
+          <div class="media-stat-lbl">Vogue Italia · <a href="https://vs.co/vlfqk0st" target="_blank" rel="noopener"
+              onclick="event.stopPropagation()" style="color:var(--gold);text-decoration:none">VSCO ↗</a></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section id="leadership">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-num">05</div>
+        <div class="section-title-group">
+          <div class="section-eyebrow">Campus Involvement</div>
+          <h2 class="section-title">Leadership & <em>community</em></h2>
+        </div>
+      </div>
+      <div class="leadership-grid">
+        <div class="leadership-card reveal">
+          <div class="lship-period">Oct 2024 – Present</div>
+          <div class="lship-role">Media Officer</div>
+          <div class="lship-org">Japanese Cultural Association @ NYU</div>
+          <div class="lship-desc">Develops and designs Instagram-first campaigns to promote events, grow campus
+            engagement, and connect students around Japanese culture and anime communities.</div>
+        </div>
+        <div class="leadership-card reveal reveal-delay-1">
+          <div class="lship-period">Oct 2024 – Present</div>
+          <div class="lship-role">Communication Coordinator</div>
+          <div class="lship-org">Steinhardt International Programming Advocacy Committee</div>
+          <div class="lship-desc">Leads multi-channel outreach across social media and newsletters. Produces short-form
+            content and branded assets to drive program participation and international awareness.</div>
+        </div>
+        <div class="leadership-card reveal reveal-delay-2">
+          <div class="lship-period">Oct 2024 – Jan 2026</div>
+          <div class="lship-role">Marketing Coordinator</div>
+          <div class="lship-org">Fusion Film Festival @ NYU</div>
+          <div class="lship-desc">Creates and publishes Instagram content and visuals to amplify festival programming,
+            strengthen audience reach, and build brand identity across the NYU community.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-eyebrow">Let's Connect</div>
+      <h2 class="contact-h2">Open to <em>internships</em></h2>
+      <p class="contact-sub">Looking for Fall 2026 marketing, communication, or brand intern roles. Based in NYC and
+        TPE, open to remote and hybrid.</p>
+      <a href="mailto:angelinachen0312@gmail.com" class="contact-email">angelinachen0312@gmail.com</a>
+      <div class="contact-links">
+        <a href="tel:+13328674168" class="contact-link">+1 (332) 867-4168</a>
+        <a href="https://www.linkedin.com/in/angelina-chen-611196303" target="_blank" rel="noopener"
+          class="contact-link">LinkedIn</a>
+        <a href="https://www.tiktok.com/@angelinafish12" target="_blank" rel="noopener" class="contact-link">TikTok
+          @angelinafish12</a>
+        <a href="https://vs.co/vlfqk0st" target="_blank" rel="noopener" class="contact-link">VSCO</a>
+        <a href="work.html" class="contact-link">Portfolio →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 Angelina Chen (Jia-Jhih Chen) · NYU Steinhardt · Manhattan, NY</footer>
+
+  <script>
+    // TICKER
+    const ITEMS = ['Consumer Marketing Intern', '·', 'Condé Nast', '·', 'NYU Steinhardt', '·', 'GPA 3.86', '·', 'Dean\'s List', '·', 'Content Strategy', '·', 'Gen Z Marketing', '·', 'Short-Form Video', '·', 'Social Media', '·', 'Xiaohongshu', '·', 'TikTok', '·', 'PhotoVogue Featured', '·', 'Bilingual (EN/ZH)', '·', 'Anime & Licensing', '·', 'Art Market', '·'];
+    const tickerEl = document.getElementById('ticker');
+    tickerEl.innerHTML = (ITEMS.map(t => `<span class="ticker-item">${t}</span>`).join('')).repeat(2);
+    let x = 0;
+    (function animTicker() { x -= 0.5; if (Math.abs(x) >= tickerEl.scrollWidth / 2) x = 0; tickerEl.style.transform = `translateX(${x}px)`; requestAnimationFrame(animTicker); })();
+
+    // NAV
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50), { passive: true });
+
+    // SMOOTH SCROLL
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => { const t = document.querySelector(a.getAttribute('href')); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); } }));
+
+    // REVEAL
+    const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // LIGHTBOX
+    const PHOTOS = [
+      { src: 'assets/image1.png', caption: 'Photography · Angelina Chen · 1 / 2' },
+      { src: 'assets/image2.png', caption: 'Photography · Angelina Chen · 2 / 2' },
+    ];
+    let lbIdx = 0;
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    const lbCap = document.getElementById('lb-caption');
+
+    function openLb(i) {
+      lbIdx = ((i % PHOTOS.length) + PHOTOS.length) % PHOTOS.length;
+      lbImg.src = PHOTOS[lbIdx].src;
+      lbCap.textContent = PHOTOS[lbIdx].caption;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+
+    document.querySelectorAll('.photo-thumb').forEach(img =>
+      img.addEventListener('click', e => { e.stopPropagation(); openLb(+img.dataset.index); })
+    );
+    const photoCard = document.getElementById('photo-card');
+    photoCard.addEventListener('click', () => openLb(0));
+    photoCard.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb(0); } });
+    document.getElementById('lb-close').addEventListener('click', closeLb);
+    document.getElementById('lb-prev').addEventListener('click', e => { e.stopPropagation(); openLb(lbIdx - 1); });
+    document.getElementById('lb-next').addEventListener('click', e => { e.stopPropagation(); openLb(lbIdx + 1); });
+    lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') openLb(lbIdx - 1);
+      if (e.key === 'ArrowRight') openLb(lbIdx + 1);
+    });
+  </script>
+</body>
+
+</html>
