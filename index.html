@@ -688,6 +688,28 @@
       color: var(--rose-light);
     }
 
+    /* Art photo strip */
+    .exp-art-strip {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .exp-art-strip img {
+      width: 72px;
+      height: 56px;
+      object-fit: cover;
+      border: 1.5px solid var(--border);
+      cursor: pointer;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .exp-art-strip img:hover {
+      transform: scale(1.07);
+      border-color: var(--gold);
+    }
+
     /* WINS */
     #wins {
       background: var(--ink);
@@ -712,7 +734,7 @@
 
     .wins-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5px;
       background: rgba(250, 247, 242, 0.08);
       border: 1.5px solid rgba(250, 247, 242, 0.08);
@@ -1023,6 +1045,27 @@
       transform: scale(1.06);
     }
 
+    /* XHS photo strip */
+    .xhs-thumbs {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .xhs-thumb {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border: 1.5px solid var(--border);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .xhs-thumb:hover {
+      transform: scale(1.06);
+      border-color: var(--rose);
+    }
+
     /* LIGHTBOX */
     .lightbox-overlay {
       position: fixed;
@@ -1110,9 +1153,127 @@
       white-space: nowrap;
     }
 
+    /* COSPLAY SECTION */
+    #cosplay {
+      background: var(--cream);
+      overflow: hidden;
+    }
+
+    #cosplay .section-eyebrow {
+      color: var(--rose);
+    }
+
+    .cosplay-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+    }
+
+    /* first card is video-driven */
+    .cos-card {
+      background: var(--warm-white);
+      position: relative;
+      overflow: hidden;
+      min-height: 420px;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .cos-card:hover {
+      background: var(--cream);
+    }
+
+    .cos-card:hover .cos-overlay {
+      opacity: 1;
+    }
+
+    .cos-card:hover .cos-img {
+      transform: scale(1.04);
+    }
+
+    .cos-card:hover .cos-video {
+      opacity: 0.55;
+    }
+
+    .cos-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .cos-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.38;
+      transition: opacity 0.4s;
+    }
+
+    .cos-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(70, 167, 180, 0.7) 0%, transparent 55%);
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+
+    .cos-info {
+      position: relative;
+      z-index: 2;
+      padding: 1.5rem 1.75rem;
+    }
+
+    .cos-character {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 0.2rem;
+    }
+
+    .cos-series {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .cos-play-badge {
+      position: absolute;
+      top: 1.25rem;
+      left: 1.25rem;
+      z-index: 3;
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--rose);
+      color: white;
+      padding: 0.3rem 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .cos-play-badge::before {
+      content: '▶';
+      font-size: 0.5rem;
+    }
+
     /* LEADERSHIP */
     #leadership {
-      background: var(--cream);
+      background: var(--warm-white);
     }
 
     .leadership-grid {
@@ -1155,10 +1316,44 @@
       margin-bottom: 0.75rem;
     }
 
+    .lship-org a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(171, 120, 180, 0.3);
+      transition: border-color 0.2s;
+    }
+
+    .lship-org a:hover {
+      border-color: var(--rose);
+    }
+
     .lship-desc {
       font-size: 0.8rem;
       color: var(--muted);
       line-height: 1.7;
+    }
+
+    /* SDA17 card accent */
+    .leadership-card.sda-card {
+      border-color: var(--sage);
+      background: rgba(122, 158, 142, 0.05);
+    }
+
+    .leadership-card.sda-card:hover {
+      border-color: var(--sage);
+      background: rgba(122, 158, 142, 0.1);
+    }
+
+    .sda-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      background: var(--sage);
+      color: white;
+      padding: 0.25rem 0.6rem;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
     }
 
     /* CONTACT */
@@ -1324,6 +1519,10 @@
         grid-template-columns: 1fr;
       }
 
+      .cosplay-layout {
+        grid-template-columns: 1fr;
+      }
+
       nav {
         padding: 1rem 1.5rem;
       }
@@ -1377,6 +1576,7 @@
       <li><a href="#wins">Results</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#media">Media</a></li>
+      <li><a href="#cosplay">Cosplay</a></li>
       <li><a href="work.html">Work ↗</a></li>
     </ul>
     <a href="#contact" class="nav-cta">Say Hello →</a>
@@ -1539,6 +1739,14 @@
             <li>Supported biannual auction logistics, preview events, and artwork photography QC</li>
             <li>Produced bilingual (Chinese/English) bios for 50+ artists for digital and print catalogs</li>
           </ul>
+          <div class="exp-art-strip">
+            <img src="assets/art1.png" alt="Ravenel Art 1" title="Ravenel Art Group — auction preview"
+              data-gallery="art" data-index="0">
+            <img src="assets/art2.png" alt="Ravenel Art 2" title="Ravenel Art Group — artwork photography"
+              data-gallery="art" data-index="1">
+            <img src="assets/art3.png" alt="Ravenel Art 3" title="Ravenel Art Group — event" data-gallery="art"
+              data-index="2">
+          </div>
         </div>
       </div>
     </div>
@@ -1564,10 +1772,6 @@
           <div class="win-label">Engagement lift at Ravenel</div>
         </div>
         <div class="win-card reveal reveal-delay-2">
-          <div class="win-num">549K</div>
-          <div class="win-label">TikTok Likes Earned</div>
-        </div>
-        <div class="win-card reveal reveal-delay-3">
           <div class="win-num">500+</div>
           <div class="win-label">Anime Titles Evaluated</div>
         </div>
@@ -1675,16 +1879,27 @@
         </a>
 
         <!-- Xiaohongshu -->
-        <a href="https://xhslink.com/m/6Pjq8dfgeCU" target="_blank" rel="noopener"
-          class="media-card reveal reveal-delay-1">
+        <div class="media-card reveal reveal-delay-1" style="cursor:default">
           <div class="media-platform"><span class="platform-dot xhs"></span>Xiaohongshu (Red Note)</div>
           <div class="media-card-title">Food & Lifestyle Blogger</div>
-          <div class="media-card-desc">Curates restaurant reviews, café guides, and food photography across Taipei, New
-            York, and Japan. Posts with 47K+ views. Focuses on authentic, local storytelling for both locals and
-            tourists.</div>
-          <div class="media-stat">47K+</div>
-          <div class="media-stat-lbl">Views on top post</div>
-        </a>
+          <div class="media-card-desc">Shares food and lifestyle content spanning Taipei, New York, Paris, Shanghai, and
+            Japan — covering everything from neighborhood ramen spots to fine dining across cultures. Beyond personal
+            recommendations, actively collaborates with restaurants on promotional campaigns, combining authentic
+            storytelling with branded content that drives real foot traffic and social buzz.</div>
+          <div class="xhs-thumbs">
+            <img class="xhs-thumb" src="assets/red1.png" alt="Xiaohongshu food post 1" data-gallery="xhs"
+              data-index="0">
+            <img class="xhs-thumb" src="assets/red2.png" alt="Xiaohongshu food post 2" data-gallery="xhs"
+              data-index="1">
+            <img class="xhs-thumb" src="assets/red3.png" alt="Xiaohongshu food post 3" data-gallery="xhs"
+              data-index="2">
+            <img class="xhs-thumb" src="assets/red4.png" alt="Xiaohongshu food post 4" data-gallery="xhs"
+              data-index="3">
+          </div>
+          <div class="media-stat" style="margin-top:1rem">47K+</div>
+          <div class="media-stat-lbl">Views on top post · <a href="https://xhslink.com/m/6Pjq8dfgeCU" target="_blank"
+              rel="noopener" style="color:var(--gold);text-decoration:none">Red Note ↗</a></div>
+        </div>
 
         <!-- Photography — lightbox trigger -->
         <div class="media-card reveal reveal-delay-2" id="photo-card" role="button" tabindex="0"
@@ -1694,14 +1909,11 @@
           <div class="media-card-desc">Work featured on PhotoVogue under the "Culture" theme. Ricoh GR2 & iPhone 13 Pro.
             Click a thumbnail to view full image.</div>
           <div class="photo-thumbs">
-            <img class="photo-thumb" src="assets/image1.png" alt="Photo 1" data-index="0">
-            <img class="photo-thumb" src="assets/image2.png" alt="Photo 2" data-index="1">
-            <img class="photo-thumb" src="assets/image4.png" alt="Photo 3" data-index="2">
-            <img class="photo-thumb" src="assets/image6.png" alt="Photo 4" data-index="3">
-            <img class="photo-thumb" src="assets/image7.png" alt="Photo 5" data-index="4">
-
-
-
+            <img class="photo-thumb" src="assets/image1.png" alt="Photo 1" data-gallery="photo" data-index="0">
+            <img class="photo-thumb" src="assets/image2.png" alt="Photo 2" data-gallery="photo" data-index="1">
+            <img class="photo-thumb" src="assets/image4.png" alt="Photo 3" data-gallery="photo" data-index="2">
+            <img class="photo-thumb" src="assets/image6.png" alt="Photo 4" data-gallery="photo" data-index="3">
+            <img class="photo-thumb" src="assets/image7.png" alt="Photo 5" data-gallery="photo" data-index="4">
           </div>
           <div class="media-stat" style="margin-top:1rem">Featured</div>
           <div class="media-stat-lbl">Vogue Italia · <a href="https://vs.co/vlfqk0st" target="_blank" rel="noopener"
@@ -1712,32 +1924,104 @@
     </div>
   </section>
 
-  <!-- LEADERSHIP -->
-  <section id="leadership">
+  <!-- COSPLAY -->
+  <section id="cosplay">
     <div class="container">
       <div class="section-header reveal">
         <div class="section-num">05</div>
         <div class="section-title-group">
-          <div class="section-eyebrow">Campus Involvement</div>
+          <div class="section-eyebrow">Character & Costume</div>
+          <h2 class="section-title">Cosplay & <em>creative identity</em></h2>
+        </div>
+      </div>
+
+      <div class="cosplay-layout">
+
+        <!-- Reze — video bomb.mp4 -->
+        <div class="cos-card reveal" data-gallery="cos" data-index="0" style="cursor:pointer" tabindex="0"
+          aria-label="View Reze cosplay">
+          <div class="cos-play-badge">Video</div>
+          <video class="cos-video" autoplay muted loop playsinline>
+            <source src="assets/bomb.mp4" type="video/mp4">
+          </video>
+          <div class="cos-overlay"></div>
+          <div class="cos-info">
+            <div class="cos-character">Reze</div>
+            <div class="cos-series">Chainsaw Man</div>
+          </div>
+        </div>
+
+        <!-- Frieren — cos2.png -->
+        <div class="cos-card reveal reveal-delay-1" data-gallery="cos" data-index="1" tabindex="0"
+          aria-label="View Frieren cosplay">
+          <img class="cos-img" src="assets/cos2.png" alt="Cosplay as Frieren from Frieren: Beyond Journey's End">
+          <div class="cos-overlay"></div>
+          <div class="cos-info">
+            <div class="cos-character">Frieren</div>
+            <div class="cos-series">Frieren: Beyond Journey's End</div>
+          </div>
+        </div>
+
+        <!-- Asuka — cos3.png -->
+        <div class="cos-card reveal reveal-delay-2" data-gallery="cos" data-index="2" tabindex="0"
+          aria-label="View Asuka cosplay">
+          <img class="cos-img" src="assets/cos3.png" alt="Cosplay as Asuka from Neon Genesis Evangelion">
+          <div class="cos-overlay"></div>
+          <div class="cos-info">
+            <div class="cos-character">Asuka Langley Soryu</div>
+            <div class="cos-series">Neon Genesis Evangelion</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Note about cos1.png as Reze still photo -->
+      <p style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase;margin-top:1.5rem;text-align:center;"
+        class="reveal">
+        Costume craftsmanship, character research, and art direction — all self-produced
+      </p>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section id="leadership">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-num">06</div>
+        <div class="section-title-group">
+          <div class="section-eyebrow">Campus Involvement & Community</div>
           <h2 class="section-title">Leadership & <em>community</em></h2>
         </div>
       </div>
       <div class="leadership-grid">
-        <div class="leadership-card reveal">
+
+        <!-- SDA17 — Activities Manager -->
+        <div class="leadership-card sda-card reveal">
+          <div class="sda-badge">Community ↗</div>
+          <div class="lship-period">Ongoing</div>
+          <div class="lship-role">Activities Manager</div>
+          <div class="lship-org"><a href="https://www.sda17.org/" target="_blank" rel="noopener">SDA17 · sda17.org ↗</a>
+          </div>
+          <div class="lship-desc">Organized and hosted a stray dog adoption and awareness event, connecting local
+            shelters with the community. Supported and co-executed additional community programs — handling logistics,
+            outreach, and on-site coordination to ensure smooth, impactful experiences for all attendees.</div>
+        </div>
+
+        <div class="leadership-card reveal reveal-delay-1">
           <div class="lship-period">Oct 2024 – Present</div>
           <div class="lship-role">Media Officer</div>
           <div class="lship-org">Japanese Cultural Association @ NYU</div>
           <div class="lship-desc">Develops and designs Instagram-first campaigns to promote events, grow campus
             engagement, and connect students around Japanese culture and anime communities.</div>
         </div>
-        <div class="leadership-card reveal reveal-delay-1">
+        <div class="leadership-card reveal reveal-delay-2">
           <div class="lship-period">Oct 2024 – Present</div>
           <div class="lship-role">Communication Coordinator</div>
           <div class="lship-org">Steinhardt International Programming Advocacy Committee</div>
           <div class="lship-desc">Leads multi-channel outreach across social media and newsletters. Produces short-form
             content and branded assets to drive program participation and international awareness.</div>
         </div>
-        <div class="leadership-card reveal reveal-delay-2">
+        <div class="leadership-card reveal reveal-delay-3">
           <div class="lship-period">Oct 2024 – Jan 2026</div>
           <div class="lship-role">Marketing Coordinator</div>
           <div class="lship-org">Fusion Film Festival @ NYU</div>
@@ -1772,7 +2056,7 @@
 
   <script>
     // TICKER
-    const ITEMS = ['Consumer Marketing Intern', '·', 'Condé Nast', '·', 'NYU Steinhardt', '·', 'GPA 3.86', '·', 'Dean\'s List', '·', 'Content Strategy', '·', 'Gen Z Marketing', '·', 'Short-Form Video', '·', 'Social Media', '·', 'Xiaohongshu', '·', 'TikTok', '·', 'PhotoVogue Featured', '·', 'Bilingual (EN/ZH)', '·', 'Anime & Licensing', '·', 'Art Market', '·'];
+    const ITEMS = ['Consumer Marketing Intern', '·', 'Condé Nast', '·', 'NYU Steinhardt', '·', 'GPA 3.86', '·', 'Dean\'s List', '·', 'Content Strategy', '·', 'Gen Z Marketing', '·', 'Short-Form Video', '·', 'Social Media', '·', 'Xiaohongshu', '·', 'TikTok', '·', 'PhotoVogue Featured', '·', 'Bilingual (EN/ZH)', '·', 'Anime & Licensing', '·', 'Art Market', '·', 'Cosplay', '·', 'SDA17', '·'];
     const tickerEl = document.getElementById('ticker');
     tickerEl.innerHTML = (ITEMS.map(t => `<span class="ticker-item">${t}</span>`).join('')).repeat(2);
     let x = 0;
@@ -1789,40 +2073,87 @@
     const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    // LIGHTBOX
-    const PHOTOS = [
-      { src: 'assets/image1.png', caption: 'Photography · Angelina Chen · 1 / 2' },
-      { src: 'assets/image2.png', caption: 'Photography · Angelina Chen · 2 / 2' },
-    ];
+    // UNIFIED LIGHTBOX GALLERIES
+    const GALLERIES = {
+      photo: [
+        { src: 'assets/image1.png', caption: 'Photography · Angelina Chen · 1 / 5' },
+        { src: 'assets/image2.png', caption: 'Photography · Angelina Chen · 2 / 5' },
+        { src: 'assets/image4.png', caption: 'Photography · Angelina Chen · 3 / 5' },
+        { src: 'assets/image6.png', caption: 'Photography · Angelina Chen · 4 / 5' },
+        { src: 'assets/image7.png', caption: 'Photography · Angelina Chen · 5 / 5' },
+      ],
+      art: [
+        { src: 'assets/art1.png', caption: 'Ravenel Art Group · 1 / 3' },
+        { src: 'assets/art2.png', caption: 'Ravenel Art Group · 2 / 3' },
+        { src: 'assets/art3.png', caption: 'Ravenel Art Group · 3 / 3' },
+      ],
+      xhs: [
+        { src: 'assets/red1.png', caption: 'Xiaohongshu · Food & Lifestyle · 1 / 4' },
+        { src: 'assets/red2.png', caption: 'Xiaohongshu · Food & Lifestyle · 2 / 4' },
+        { src: 'assets/red3.png', caption: 'Xiaohongshu · Food & Lifestyle · 3 / 4' },
+        { src: 'assets/red4.png', caption: 'Xiaohongshu · Food & Lifestyle · 4 / 4' },
+      ],
+      cos: [
+        { src: 'assets/cos1.png', caption: 'Cosplay · Reze — Chainsaw Man · 1 / 3' },
+        { src: 'assets/cos2.png', caption: 'Cosplay · Frieren — Beyond Journey\'s End · 2 / 3' },
+        { src: 'assets/cos3.png', caption: 'Cosplay · Asuka — Neon Genesis Evangelion · 3 / 3' },
+      ],
+    };
+
+    let lbGallery = 'photo';
     let lbIdx = 0;
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lb-img');
     const lbCap = document.getElementById('lb-caption');
 
-    function openLb(i) {
-      lbIdx = ((i % PHOTOS.length) + PHOTOS.length) % PHOTOS.length;
-      lbImg.src = PHOTOS[lbIdx].src;
-      lbCap.textContent = PHOTOS[lbIdx].caption;
+    function openLb(gallery, i) {
+      lbGallery = gallery;
+      const photos = GALLERIES[gallery];
+      lbIdx = ((i % photos.length) + photos.length) % photos.length;
+      lbImg.src = photos[lbIdx].src;
+      lbCap.textContent = photos[lbIdx].caption;
       lb.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
     function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+    function navLb(dir) {
+      const photos = GALLERIES[lbGallery];
+      lbIdx = ((lbIdx + dir) % photos.length + photos.length) % photos.length;
+      lbImg.src = photos[lbIdx].src;
+      lbCap.textContent = photos[lbIdx].caption;
+    }
 
-    document.querySelectorAll('.photo-thumb').forEach(img =>
-      img.addEventListener('click', e => { e.stopPropagation(); openLb(+img.dataset.index); })
-    );
+    // Photo thumbs
+    document.querySelectorAll('[data-gallery]').forEach(el => {
+      el.addEventListener('click', e => {
+        e.stopPropagation();
+        const gallery = el.dataset.gallery;
+        const idx = parseInt(el.dataset.index, 10);
+        // cos cards: open lightbox with cos1.png still
+        if (gallery === 'cos') { openLb('cos', idx); return; }
+        openLb(gallery, idx);
+      });
+    });
+
+    // Photo card fallback click
     const photoCard = document.getElementById('photo-card');
-    photoCard.addEventListener('click', () => openLb(0));
-    photoCard.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb(0); } });
+    photoCard.addEventListener('click', () => openLb('photo', 0));
+    photoCard.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb('photo', 0); } });
+
+    // Cosplay cards keyboard
+    document.querySelectorAll('.cos-card').forEach(card => {
+      card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb('cos', parseInt(card.dataset.index, 10)); } });
+    });
+
     document.getElementById('lb-close').addEventListener('click', closeLb);
-    document.getElementById('lb-prev').addEventListener('click', e => { e.stopPropagation(); openLb(lbIdx - 1); });
-    document.getElementById('lb-next').addEventListener('click', e => { e.stopPropagation(); openLb(lbIdx + 1); });
+    document.getElementById('lb-prev').addEventListener('click', e => { e.stopPropagation(); navLb(-1); });
+    document.getElementById('lb-next').addEventListener('click', e => { e.stopPropagation(); navLb(1); });
     lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
     document.addEventListener('keydown', e => {
       if (!lb.classList.contains('open')) return;
       if (e.key === 'Escape') closeLb();
-      if (e.key === 'ArrowLeft') openLb(lbIdx - 1);
-      if (e.key === 'ArrowRight') openLb(lbIdx + 1);
+      if (e.key === 'ArrowLeft') navLb(-1);
+      if (e.key === 'ArrowRight') navLb(1);
     });
   </script>
 </body>
