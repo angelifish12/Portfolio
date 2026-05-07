@@ -2253,33 +2253,34 @@
         </div>
       </div>
 
-      <div class="perf-exhibition-grid">
+      <div class="perf-exhibition-grid" style="grid-template-columns:1fr">
 
         <div class="perf-card reveal">
           <div class="perf-venue-tag"><span class="perf-venue-dot"></span>NYU Shanghai Photo Exhibition</div>
-          <div class="perf-title">I Am the <em>Typhoon</em></div>
-          <div class="perf-subtitle">Individual Work · Self-Portrait Series</div>
-          <p class="perf-desc">A self-portrait series reimagining the body as a typhoon — tracing the eye of the storm
-            inward, where stillness and destruction coexist. The work uses light, exposure, and physical gesture to
-            collapse the boundary between natural force and personal identity.</p>
-          <div class="perf-thumbs">
-            <img class="perf-thumb" src="assets/ex1.png" alt="I Am the Typhoon 1" data-gallery="perf-typhoon"
-              data-index="0">
-            <img class="perf-thumb" src="assets/ex2.png" alt="I Am the Typhoon 2" data-gallery="perf-typhoon"
-              data-index="1">
+          <div class="perf-title" style="margin-bottom:0.75rem">Two Works · <em>2025</em></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:1.5rem">
+            <div>
+              <div class="perf-subtitle" style="margin-bottom:0.5rem">I — I Am the Typhoon</div>
+              <p class="perf-desc" style="margin-bottom:0">A self-portrait series reimagining the body as a typhoon —
+                tracing the eye of the storm inward, where stillness and destruction coexist. Light, exposure, and
+                physical gesture collapse the boundary between natural force and personal identity.</p>
+            </div>
+            <div>
+              <div class="perf-subtitle" style="margin-bottom:0.5rem">II — The Last Hour of Death Row</div>
+              <p class="perf-desc" style="margin-bottom:0">A performance piece confronting the final hour before
+                execution — exploring how time, memory, and the body behave under the weight of finality. A meditative
+                tension between resistance and surrender.</p>
+            </div>
           </div>
-        </div>
-
-        <div class="perf-card reveal reveal-delay-1">
-          <div class="perf-venue-tag"><span class="perf-venue-dot"></span>NYU Shanghai Photo Exhibition</div>
-          <div class="perf-title">The Last Hour of <em>Death Row</em></div>
-          <div class="perf-subtitle">Performance Art · Collaborative Work</div>
-          <p class="perf-desc">A performance piece confronting the final hour before execution — exploring how time,
-            memory, and the body behave under the weight of finality. The work stages a meditative tension between
-            resistance and surrender in the last moments of a condemned life.</p>
           <div class="perf-thumbs">
-            <img class="perf-thumb" src="assets/ex3.png" alt="Death Row 1" data-gallery="perf-deathrow" data-index="0">
-            <img class="perf-thumb" src="assets/ex4.png" alt="Death Row 2" data-gallery="perf-deathrow" data-index="1">
+            <img class="perf-thumb" src="assets/ex1.png" alt="I Am the Typhoon 1" data-gallery="perf-shanghai"
+              data-index="0">
+            <img class="perf-thumb" src="assets/ex2.png" alt="I Am the Typhoon 2" data-gallery="perf-shanghai"
+              data-index="1">
+            <img class="perf-thumb" src="assets/ex3.png" alt="The Last Hour of Death Row 1" data-gallery="perf-shanghai"
+              data-index="2">
+            <img class="perf-thumb" src="assets/ex4.png" alt="The Last Hour of Death Row 2" data-gallery="perf-shanghai"
+              data-index="3">
           </div>
         </div>
 
@@ -2289,7 +2290,7 @@
         <div>
           <div class="perf-venue-tag"><span class="perf-venue-dot" style="background:var(--rose)"></span>Off-Campus
             Exhibition · Action and Gesture</div>
-          <div class="perf-title" style="font-size:1.1rem">Eyes Across Every <em>Stage</em></div>
+          <div class="perf-title" style="font-size:1.1rem"><em>Eyes on Me</em></div>
           <div class="perf-subtitle">Durational Performance · Body as Archive</div>
           <p class="perf-desc">A durational performance in which eyes collected from the artist's childhood photographs
             — each representing a different age and stage of life — are placed across the body. The work unfolds as a
@@ -2425,18 +2426,16 @@
         { src: 'assets/cos2.png', caption: 'Cosplay · Frieren — Beyond Journey\'s End · 3 / 4' },
         { src: 'assets/cos3.png', caption: 'Cosplay · Asuka — Neon Genesis Evangelion · 4 / 4' },
       ],
-      'perf-typhoon': [
-        { src: 'assets/ex1.png', caption: 'I Am the Typhoon · NYU Shanghai Exhibition · 1 / 2' },
-        { src: 'assets/ex2.png', caption: 'I Am the Typhoon · NYU Shanghai Exhibition · 2 / 2' },
-      ],
-      'perf-deathrow': [
-        { src: 'assets/ex3.png', caption: 'The Last Hour of Death Row · NYU Shanghai Exhibition · 1 / 2' },
-        { src: 'assets/ex4.png', caption: 'The Last Hour of Death Row · NYU Shanghai Exhibition · 2 / 2' },
+      'perf-shanghai': [
+        { src: 'assets/ex1.png', caption: 'I Am the Typhoon · NYU Shanghai Exhibition · 1 / 4' },
+        { src: 'assets/ex2.png', caption: 'I Am the Typhoon · NYU Shanghai Exhibition · 2 / 4' },
+        { src: 'assets/ex3.png', caption: 'The Last Hour of Death Row · NYU Shanghai Exhibition · 3 / 4' },
+        { src: 'assets/ex4.png', caption: 'The Last Hour of Death Row · NYU Shanghai Exhibition · 4 / 4' },
       ],
       'perf-gesture': [
-        { src: 'assets/ps1.png', caption: 'Action and Gesture · Off-Campus Exhibition · 1 / 3' },
-        { src: 'assets/ps2.png', caption: 'Action and Gesture · Off-Campus Exhibition · 2 / 3' },
-        { src: 'assets/ps3.png', caption: 'Action and Gesture · Off-Campus Exhibition · 3 / 3' },
+        { src: 'assets/ps1.png', caption: 'Eyes on Me · Action and Gesture · Off-Campus Exhibition · 1 / 3' },
+        { src: 'assets/ps2.png', caption: 'Eyes on Me · Action and Gesture · Off-Campus Exhibition · 2 / 3' },
+        { src: 'assets/ps3.png', caption: 'Eyes on Me · Action and Gesture · Off-Campus Exhibition · 3 / 3' },
       ],
     };
 
