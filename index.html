@@ -61,6 +61,7 @@
       opacity: 0.5;
     }
 
+    /* TICKER */
     .ticker-wrap {
       background: var(--ink);
       overflow: hidden;
@@ -83,6 +84,7 @@
       letter-spacing: 0.1em;
     }
 
+    /* NAV */
     nav {
       position: fixed;
       top: 0;
@@ -146,6 +148,7 @@
       transform: translateY(-1px);
     }
 
+    /* HERO */
     #hero {
       min-height: 100vh;
       display: grid;
@@ -407,6 +410,7 @@
       }
     }
 
+    /* LAYOUT */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -459,6 +463,7 @@
       color: var(--rose);
     }
 
+    /* WORK TEASER */
     #work-teaser {
       background: var(--ink);
       padding: 5rem 0;
@@ -606,6 +611,7 @@
       transform: translateY(-2px);
     }
 
+    /* EXPERIENCE */
     #experience {
       background: var(--warm-white);
     }
@@ -681,6 +687,7 @@
       color: var(--rose-light);
     }
 
+    /* Art photo strip */
     .exp-art-strip {
       display: flex;
       gap: 0.5rem;
@@ -702,6 +709,7 @@
       border-color: var(--gold);
     }
 
+    /* ── ARTICLE LINKS strip (Condé Nast) ── */
     .exp-articles {
       margin-top: 1.5rem;
       padding-top: 1.25rem;
@@ -774,6 +782,7 @@
       opacity: 1;
     }
 
+    /* WINS */
     #wins {
       background: var(--ink);
       color: var(--cream);
@@ -865,6 +874,7 @@
       line-height: 1.8;
     }
 
+    /* SKILLS */
     #skills {
       background: var(--cream);
     }
@@ -996,6 +1006,7 @@
       color: var(--brown);
     }
 
+    /* MEDIA */
     #media {
       background: var(--warm-white);
     }
@@ -1084,6 +1095,7 @@
       text-transform: uppercase;
     }
 
+    /* Photo thumbs */
     .photo-thumbs {
       display: flex;
       gap: 0.6rem;
@@ -1105,6 +1117,7 @@
       transform: scale(1.06);
     }
 
+    /* XHS thumbs */
     .xhs-thumbs {
       display: flex;
       gap: 0.5rem;
@@ -1125,6 +1138,7 @@
       border-color: var(--rose);
     }
 
+    /* LIGHTBOX */
     .lightbox-overlay {
       position: fixed;
       inset: 0;
@@ -1211,6 +1225,7 @@
       white-space: nowrap;
     }
 
+    /* COSPLAY */
     #cosplay {
       background: var(--cream);
       overflow: hidden;
@@ -1222,7 +1237,7 @@
 
     .cosplay-layout {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 1.5px;
       background: var(--border);
       border: 1.5px solid var(--border);
@@ -1323,6 +1338,7 @@
       font-size: 0.5rem;
     }
 
+    /* LEADERSHIP */
     #leadership {
       background: var(--warm-white);
     }
@@ -1406,6 +1422,7 @@
       text-transform: uppercase;
     }
 
+    /* CONTACT */
     #contact {
       background: var(--ink);
       color: var(--cream);
@@ -1487,6 +1504,7 @@
       color: var(--gold);
     }
 
+    /* FOOTER */
     footer {
       background: var(--ink);
       border-top: 1px solid rgba(250, 247, 242, 0.08);
@@ -1499,6 +1517,7 @@
       text-transform: uppercase;
     }
 
+    /* REVEAL */
     .reveal {
       opacity: 0;
       transform: translateY(24px);
@@ -1522,6 +1541,7 @@
       transition-delay: 0.3s;
     }
 
+    /* RESPONSIVE */
     @media (max-width: 960px) {
       #hero {
         grid-template-columns: 1fr;
@@ -1566,7 +1586,7 @@
       }
 
       .cosplay-layout {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
       }
 
       nav {
@@ -1594,211 +1614,13 @@
       .hero-stats {
         gap: 1.5rem;
       }
-
-      .cosplay-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .perf-exhibition-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    #performance {
-      background: var(--ink);
-      color: var(--cream);
-    }
-
-    #performance .section-eyebrow {
-      color: var(--gold);
-    }
-
-    #performance h2.section-title {
-      color: var(--cream);
-    }
-
-    #performance h2.section-title em {
-      color: var(--gold);
-    }
-
-    #performance .section-num {
-      color: rgba(250, 247, 242, 0.3);
-    }
-
-    .perf-exhibition-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5px;
-      background: rgba(250, 247, 242, 0.08);
-      border: 1.5px solid rgba(250, 247, 242, 0.08);
-      margin-bottom: 1.5px;
-    }
-
-    .perf-card {
-      background: rgba(255, 255, 255, 0.04);
-      padding: 2.5rem 2.25rem;
-      transition: background 0.3s;
-    }
-
-    .perf-card:hover {
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .perf-venue-tag {
-      font-family: var(--font-mono);
-      font-size: 0.58rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.6rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .perf-venue-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--gold);
-      flex-shrink: 0;
-    }
-
-    .perf-title {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--cream);
-      line-height: 1.15;
-      margin-bottom: 0.3rem;
-    }
-
-    .perf-title em {
-      font-style: italic;
-      color: var(--gold);
-    }
-
-    .perf-subtitle {
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-      color: rgba(250, 247, 242, 0.4);
-      text-transform: uppercase;
-      margin-bottom: 1.25rem;
-    }
-
-    .perf-desc {
-      font-size: 0.83rem;
-      color: rgba(250, 247, 242, 0.6);
-      line-height: 1.85;
-      margin-bottom: 1.5rem;
-    }
-
-    .perf-thumbs {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .perf-thumb {
-      width: 70px;
-      height: 56px;
-      object-fit: cover;
-      cursor: pointer;
-      border: 1.5px solid rgba(250, 247, 242, 0.12);
-      transition: border-color 0.2s, transform 0.2s;
-    }
-
-    .perf-thumb:hover {
-      border-color: var(--gold);
-      transform: scale(1.06);
-    }
-
-    .perf-offcampus-row {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1.5px solid rgba(250, 247, 242, 0.08);
-      border-top: none;
-      padding: 2.5rem 2.25rem;
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 3rem;
-      align-items: start;
-      transition: background 0.3s;
-    }
-
-    .perf-offcampus-row:hover {
-      background: rgba(255, 255, 255, 0.07);
-    }
-
-    .perf-process-strip {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-top: 1.5rem;
-    }
-
-    .perf-process-label {
-      font-family: var(--font-mono);
-      font-size: 0.56rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(250, 247, 242, 0.35);
-      margin-bottom: 0.5rem;
-    }
-
-    .perf-emotion-tags {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-top: 0.75rem;
-    }
-
-    .perf-emotion {
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.75rem;
-      border: 1px solid rgba(250, 247, 242, 0.15);
-      color: rgba(250, 247, 242, 0.5);
-    }
-
-    .perf-emotion.happy {
-      border-color: var(--gold);
-      color: var(--gold);
-    }
-
-    .perf-emotion.sad {
-      border-color: var(--rose);
-      color: var(--rose);
-    }
-
-    .perf-emotion.neutral {
-      border-color: var(--sage);
-      color: var(--sage);
-    }
-
-    .perf-emotion.remove {
-      border-color: rgba(250, 247, 242, 0.25);
-      color: rgba(250, 247, 242, 0.35);
-      font-style: italic;
-    }
-
-    @media (max-width: 960px) {
-      .perf-exhibition-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .perf-offcampus-row {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
     }
   </style>
 </head>
 
 <body>
 
+  <!-- LIGHTBOX -->
   <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
     <button class="lightbox-close" id="lb-close">✕ Close</button>
     <button class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Previous photo">←</button>
@@ -1807,10 +1629,12 @@
     <div class="lightbox-caption" id="lb-caption"></div>
   </div>
 
+  <!-- TICKER -->
   <div class="ticker-wrap" aria-hidden="true">
     <div class="ticker-inner" id="ticker"></div>
   </div>
 
+  <!-- NAV -->
   <nav id="nav" role="navigation">
     <a href="index.html" class="nav-logo">Angelina Chen</a>
     <ul class="nav-links">
@@ -1819,12 +1643,12 @@
       <li><a href="#skills">Skills</a></li>
       <li><a href="#media">Media</a></li>
       <li><a href="#cosplay">Cosplay</a></li>
-      <li><a href="#performance">Performance</a></li>
       <li><a href="work.html">Work ↗</a></li>
     </ul>
     <a href="#contact" class="nav-cta">Say Hello →</a>
   </nav>
 
+  <!-- HERO -->
   <section id="hero" aria-label="Introduction">
     <div class="hero-left">
       <div class="hero-eyebrow">Available for Marketing Internships · 2026</div>
@@ -1833,7 +1657,7 @@
       <p class="hero-desc">
         NYU Media, Culture, and Communication student with hands-on experience at Condé Nast and international art
         auction houses. I build brands through content, data, and storytelling that connects — across TikTok,
-        Xiaohongshu, Instagram, and beyond.
+        Xiaohongshu, Instagram, Facebook, and beyond.
       </p>
       <div class="hero-stats">
         <div>
@@ -1874,6 +1698,7 @@
     </div>
   </section>
 
+  <!-- WORK TEASER -->
   <section id="work-teaser">
     <div class="container">
       <div class="section-header reveal">
@@ -1901,15 +1726,16 @@
             sound design and playful interaction.</div>
         </a>
         <div class="work-teaser-card has-video reveal reveal-delay-2">
-          <span class="wt-arrow" style="color:var(--sage-light)">↗</span>
-          <video class="wt-video-bg" autoplay muted loop playsinline poster="assets/hand.png">
-            <source src="assets/synthetic_body.mp4" type="video/mp4">
+          <span class="wt-arrow" style="color:var(--rose-light)">↗</span>
+          <video class="wt-video-bg" autoplay muted loop playsinline>
+            <source src="assets/hye.mp4" type="video/mp4">
           </video>
           <div class="wt-video-inner">
-            <div class="wt-tag" style="color:var(--sage-light)">3D · Rhino · Blender</div>
-            <div class="wt-title">Synthetic <em>Body</em></div>
-            <div class="wt-desc">Parametric 3D explorations of the human form — branching structures, support systems,
-              and organic geometry at the intersection of body and machine.</div>
+            <div class="wt-tag" style="color:var(--rose-light)">E-Book · AI · Taiwanese Cuisine</div>
+            <div class="wt-title">呷飽未 <em>Have You Eaten?</em></div>
+            <div class="wt-desc">An e-book reimagining 5 Taiwanese dishes through AI — using Pika.art to animate
+              hand-drawn
+              sketches into motion, probing the dilemma and inevitability of AI in creative culture.</div>
           </div>
         </div>
       </div>
@@ -1919,6 +1745,7 @@
     </div>
   </section>
 
+  <!-- EXPERIENCE -->
   <section id="experience">
     <div class="container">
       <div class="section-header reveal">
@@ -1930,8 +1757,9 @@
       </div>
       <div class="exp-grid">
 
+        <!-- CONDÉ NAST -->
         <div class="exp-card reveal">
-          <div class="exp-period">Jun 2025 - Aug 2025</div>
+          <div class="exp-period">Jun 2025 – Aug 2025</div>
           <div class="exp-company">Condé Nast</div>
           <div class="exp-role">Consumer Marketing Intern</div>
           <div class="exp-location">◎ Taipei, Taiwan</div>
@@ -1943,29 +1771,34 @@
             <li>Researched micro-community leaders; presented partnership potentials to senior staff</li>
             <li>Scripted artist ID lines and edited short-form videos achieving 1M+ cross-platform views</li>
           </ul>
+
+          <!-- ── PUBLISHED ARTICLES ── -->
           <div class="exp-articles">
             <div class="exp-articles-label">Published · GQ &amp; Vogue Taiwan</div>
             <div class="article-links">
+
               <a class="article-link"
                 href="https://www.gq.com.tw/article/2025-gq-style-fest-%E6%BD%AE%E6%B5%81%E6%96%87%E5%8C%96%E7%A5%AD%E7%89%B9%E5%88%A5%E5%A0%B1%E5%B0%8E"
                 target="_blank" rel="noopener">
                 <span class="article-link-pub">GQ TW</span>
-                <span class="article-link-title">2025 GQ STYLE FEST 潮流文化祭 打造全新展區！從球場到電競，從明星球員到啦啦隊女神，8月首度登場松菸倉庫</span>
+                <span class="article-link-title">2025 GQ Style Fest 潮流文化祭 — 特別報導</span>
                 <span class="article-link-arrow">↗</span>
               </a>
+
               <a class="article-link" href="https://www.vogue.com.tw/article/2025-gq-stylefest" target="_blank"
                 rel="noopener">
                 <span class="article-link-pub">Vogue TW</span>
-                <span class="article-link-title">「2025 GQ STYLE FEST 潮流文化祭」今夏強勢登場！潮人打卡新熱點、限定市集、美食一次看</span>
+                <span class="article-link-title">2025 GQ Style Fest — Vogue Coverage</span>
                 <span class="article-link-arrow">↗</span>
               </a>
+
               <a class="article-link" href="https://www.gq.com.tw/article/2025-gq-style-fest-preview" target="_blank"
                 rel="noopener">
                 <span class="article-link-pub">GQ TW</span>
-                <span class="article-link-title">【2025GQ潮流文化祭】NBA 名人堂球星 Carmelo Anthony、「最強高中生」Ray 擔任活動大使，頑童、FEniX
-                  熱烈開唱，十大亮點齊聚松菸倉庫！</span>
+                <span class="article-link-title">2025 GQ Style Fest Preview</span>
                 <span class="article-link-arrow">↗</span>
               </a>
+
               <a class="article-link"
                 href="https://www.gq.com.tw/article/2025gq%E6%BD%AE%E6%B5%81%E6%96%87%E5%8C%96%E7%A5%AD%E6%BD%AE%E6%B5%81%E7%BE%8E%E9%A3%9F%E5%B8%82%E9%9B%86%E5%A4%A7%E5%85%AC%E9%96%8B%E5%BF%85%E5%90%83%E8%A9%B1%E9%A1%8C%E7%BE%8E%E9%A3%9F%E9%99%90%E5%AE%9A%E8%81%AF%E5%90%8D%E4%BD%B3%E9%A4%9Avip-%E5%B0%88%E5%B1%AC%E9%A4%90%E9%A3%9F%E4%B8%80%E6%AC%A1%E7%9C%8B"
                 target="_blank" rel="noopener">
@@ -1973,10 +1806,14 @@
                 <span class="article-link-title">潮流美食市集大公開 — 必吃話題美食 &amp; VIP 專屬餐飲</span>
                 <span class="article-link-arrow">↗</span>
               </a>
+
             </div>
           </div>
+          <!-- ── END ARTICLES ── -->
+
         </div>
 
+        <!-- NADA HOLDINGS -->
         <div class="exp-card reveal reveal-delay-1">
           <div class="exp-period">Nov 2023 – Dec 2023</div>
           <div class="exp-company">Nada Holdings</div>
@@ -1990,8 +1827,9 @@
           </ul>
         </div>
 
+        <!-- RAVENEL ART GROUP -->
         <div class="exp-card reveal reveal-delay-2">
-          <div class="exp-period">Aug 2023 - Oct 2023</div>
+          <div class="exp-period">Aug 2023 – Oct 2023</div>
           <div class="exp-company">Ravenel Art Group</div>
           <div class="exp-role">Marketing Intern</div>
           <div class="exp-location">◎ Taipei, Taiwan</div>
@@ -2015,6 +1853,7 @@
     </div>
   </section>
 
+  <!-- WINS -->
   <section id="wins">
     <div class="container">
       <div class="section-header reveal">
@@ -2056,6 +1895,7 @@
     </div>
   </section>
 
+  <!-- SKILLS & EDUCATION -->
   <section id="skills">
     <div class="container">
       <div class="section-header reveal">
@@ -2117,6 +1957,7 @@
     </div>
   </section>
 
+  <!-- MEDIA -->
   <section id="media">
     <div class="container">
       <div class="section-header reveal">
@@ -2128,6 +1969,7 @@
       </div>
       <div class="media-grid">
 
+        <!-- TikTok -->
         <a href="https://www.tiktok.com/@angelinafish12" target="_blank" rel="noopener" class="media-card reveal">
           <div class="media-platform"><span class="platform-dot tiktok"></span>TikTok · @angelinafish12</div>
           <div class="media-card-title">Short-Form Video Creator</div>
@@ -2137,6 +1979,7 @@
           <div class="media-stat-lbl">Followers · 549.3K Likes</div>
         </a>
 
+        <!-- Xiaohongshu -->
         <div class="media-card reveal reveal-delay-1" style="cursor:default">
           <div class="media-platform"><span class="platform-dot xhs"></span>Xiaohongshu (Red Note)</div>
           <div class="media-card-title">Food & Lifestyle Blogger</div>
@@ -2159,6 +2002,7 @@
               rel="noopener" style="color:var(--gold);text-decoration:none">Red Note ↗</a></div>
         </div>
 
+        <!-- Photography -->
         <div class="media-card reveal reveal-delay-2" id="photo-card" role="button" tabindex="0"
           aria-label="Open photography gallery">
           <div class="media-platform"><span class="platform-dot photo"></span>PhotoVogue · VSCO</div>
@@ -2181,6 +2025,7 @@
     </div>
   </section>
 
+  <!-- COSPLAY -->
   <section id="cosplay">
     <div class="container">
       <div class="section-header reveal">
@@ -2191,31 +2036,19 @@
         </div>
       </div>
       <div class="cosplay-layout">
-
         <div class="cos-card reveal" data-gallery="cos" data-index="0" style="cursor:pointer" tabindex="0"
           aria-label="View Reze cosplay">
-          <img class="cos-img" src="assets/cos1.png" alt="Cosplay as Reze from Chainsaw Man">
-          <div class="cos-overlay"></div>
-          <div class="cos-info">
-            <div class="cos-character">Reze</div>
-            <div class="cos-series">Chainsaw Man</div>
-          </div>
-        </div>
-
-        <div class="cos-card reveal reveal-delay-1" data-gallery="cos" data-index="1" style="cursor:pointer"
-          tabindex="0" aria-label="View Bomb Devil cosplay">
           <div class="cos-play-badge">Video</div>
           <video class="cos-video" autoplay muted loop playsinline>
             <source src="assets/bomb.mp4" type="video/mp4">
           </video>
           <div class="cos-overlay"></div>
           <div class="cos-info">
-            <div class="cos-character">Bomb Devil <em style="font-style:italic;color:var(--gold)">(Reze)</em></div>
+            <div class="cos-character">Reze</div>
             <div class="cos-series">Chainsaw Man</div>
           </div>
         </div>
-
-        <div class="cos-card reveal reveal-delay-2" data-gallery="cos" data-index="2" tabindex="0"
+        <div class="cos-card reveal reveal-delay-1" data-gallery="cos" data-index="1" tabindex="0"
           aria-label="View Frieren cosplay">
           <img class="cos-img" src="assets/cos2.png" alt="Cosplay as Frieren from Frieren: Beyond Journey's End">
           <div class="cos-overlay"></div>
@@ -2224,8 +2057,7 @@
             <div class="cos-series">Frieren: Beyond Journey's End</div>
           </div>
         </div>
-
-        <div class="cos-card reveal reveal-delay-3" data-gallery="cos" data-index="3" tabindex="0"
+        <div class="cos-card reveal reveal-delay-2" data-gallery="cos" data-index="2" tabindex="0"
           aria-label="View Asuka cosplay">
           <img class="cos-img" src="assets/cos3.png" alt="Cosplay as Asuka from Neon Genesis Evangelion">
           <div class="cos-overlay"></div>
@@ -2234,90 +2066,19 @@
             <div class="cos-series">Neon Genesis Evangelion</div>
           </div>
         </div>
-
       </div>
       <p style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase;margin-top:1.5rem;text-align:center;"
         class="reveal">
-        Costume craftsmanship, character research, and art direction
+        Costume craftsmanship, character research, and art direction — all self-produced
       </p>
     </div>
   </section>
 
-  <section id="performance">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-num">06</div>
-        <div class="section-title-group">
-          <div class="section-eyebrow">Exhibition & Performance</div>
-          <h2 class="section-title">Performance <em>art</em></h2>
-        </div>
-      </div>
-
-      <div class="perf-exhibition-grid" style="grid-template-columns:1fr">
-
-        <div class="perf-card reveal">
-          <div class="perf-venue-tag"><span class="perf-venue-dot"></span>NYU Shanghai Photo Exhibition · Action and
-            Gesture</div>
-          <div class="perf-title" style="margin-bottom:0.75rem">Linked/Typhoon/Death Row · <em>2025</em></div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:1.5rem">
-            <div>
-              <div class="perf-subtitle" style="margin-bottom:0.5rem">I — I Am the Typhoon</div>
-              <p class="perf-desc" style="margin-bottom:0">A self-portrait series reimagining the body as a typhoon —
-                tracing the eye of the storm inward, where stillness and destruction coexist. Light, exposure, and
-                physical gesture collapse the boundary between natural force and personal identity.</p>
-            </div>
-            <div>
-              <div class="perf-subtitle" style="margin-bottom:0.5rem">II — The Last Hour of Death Row</div>
-              <p class="perf-desc" style="margin-bottom:0">A performance piece confronting the final hour before
-                execution — exploring how time, memory, and the body behave under the weight of finality. A meditative
-                tension between resistance and surrender.</p>
-            </div>
-          </div>
-          <div class="perf-thumbs">
-            <img class="perf-thumb" src="assets/ex1.png" alt="I Am the Typhoon 1" data-gallery="perf-shanghai"
-              data-index="0">
-            <img class="perf-thumb" src="assets/ex2.png" alt="I Am the Typhoon 2" data-gallery="perf-shanghai"
-              data-index="1">
-            <img class="perf-thumb" src="assets/ex3.png" alt="The Last Hour of Death Row 1" data-gallery="perf-shanghai"
-              data-index="2">
-            <img class="perf-thumb" src="assets/ex4.png" alt="The Last Hour of Death Row 2" data-gallery="perf-shanghai"
-              data-index="3">
-          </div>
-        </div>
-
-      </div>
-
-      <div class="perf-offcampus-row reveal">
-        <div>
-          <div class="perf-venue-tag"><span class="perf-venue-dot" style="background:var(--rose)"></span>Off-Campus
-            Exhibition · Action and Gesture</div>
-          <div class="perf-title" style="font-size:1.1rem"><em>Eyes on Me · 2025</em></div>
-          <div class="perf-subtitle">Durational Performance · Body as Archive</div>
-          <p class="perf-desc">A durational performance in which eyes collected from my childhood photographs
-            — each representing a different age and stage of life — are placed across the body. The work unfolds as a
-            repeated ritual: selecting, arranging, and ultimately attempting to remove them. Three emotional registers —
-            joy, grief, and neutrality — guide each cycle, until the final act of erasure.</p>
-        </div>
-        <div>
-          <div class="perf-process-label">Documentation</div>
-          <div class="perf-process-strip">
-            <img class="perf-thumb" src="assets/ps1.png" alt="Action and Gesture 1" data-gallery="perf-gesture"
-              data-index="0" style="width:90px;height:72px">
-            <img class="perf-thumb" src="assets/ps2.png" alt="Action and Gesture 2" data-gallery="perf-gesture"
-              data-index="1" style="width:90px;height:72px">
-            <img class="perf-thumb" src="assets/ps3.png" alt="Action and Gesture 3" data-gallery="perf-gesture"
-              data-index="2" style="width:90px;height:72px">
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
+  <!-- LEADERSHIP -->
   <section id="leadership">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-num">07</div>
+        <div class="section-num">06</div>
         <div class="section-title-group">
           <div class="section-eyebrow">Campus Involvement & Community</div>
           <h2 class="section-title">Leadership & <em>community</em></h2>
@@ -2335,7 +2096,7 @@
             outreach, and on-site coordination to ensure smooth, impactful experiences for all attendees.</div>
         </div>
         <div class="leadership-card reveal reveal-delay-1">
-          <div class="lship-period">Oct 2024 - Present</div>
+          <div class="lship-period">Oct 2024 – Present</div>
           <div class="lship-role">Media Officer</div>
           <div class="lship-org"><a href="https://www.instagram.com/nyu.jca/" target="_blank" rel="noopener">Japanese
               Cultural Association @ NYU</a></div>
@@ -2343,14 +2104,14 @@
             engagement, and connect students around Japanese culture and anime communities.</div>
         </div>
         <div class="leadership-card reveal reveal-delay-2">
-          <div class="lship-period">Oct 2024 - Present</div>
+          <div class="lship-period">Oct 2024 – Present</div>
           <div class="lship-role">Communication Coordinator</div>
           <div class="lship-org">Steinhardt International Programming Advocacy Committee</div>
           <div class="lship-desc">Leads multi-channel outreach across social media and newsletters. Produces short-form
             content and branded assets to drive program participation and international awareness.</div>
         </div>
         <div class="leadership-card reveal reveal-delay-3">
-          <div class="lship-period">Oct 2024 - Jan 2026</div>
+          <div class="lship-period">Oct 2024 – Jan 2026</div>
           <div class="lship-role">Marketing Coordinator</div>
           <div class="lship-org">Fusion Film Festival @ NYU</div>
           <div class="lship-desc">Creates and publishes Instagram content and visuals to amplify festival programming,
@@ -2360,6 +2121,7 @@
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section id="contact">
     <div class="container">
       <div class="contact-eyebrow">Let's Connect</div>
@@ -2382,20 +2144,25 @@
   <footer>© 2026 Angelina Chen (Jia-Jhih Chen) · NYU Steinhardt · Manhattan, NY</footer>
 
   <script>
-    const ITEMS = ['Consumer Marketing Intern', '·', 'Condé Nast', '·', 'NYU Steinhardt', '·', 'GPA 3.86', '·', 'Dean\'s List', '·', 'Content Strategy', '·', 'Gen Z Marketing', '·', 'Short-Form Video', '·', 'Social Media', '·', 'Xiaohongshu', '·', 'TikTok', '·', 'PhotoVogue Featured', '·', 'Bilingual (EN/ZH)', '·', 'Anime & Licensing', '·', 'Art Market', '·', 'Cosplay', '·', 'SDA17', '·'];
+    // TICKER
+    const ITEMS = ['Consumer Marketing Intern', '·', 'Condé Nast', '·', 'NYU Steinhardt', '·', 'GPA 3.86', '·', 'Dean\'s List', '·', 'Content Strategy', '·', 'Gen Z Marketing', '·', 'Short-Form Video', '·', 'Social Media', '·', 'Xiaohongshu', '·', 'TikTok', '·', 'PhotoVogue Featured', '·', 'Bilingual (EN/ZH)', '·', 'Anime & Licensing', '·', 'Art Market', '·', 'Cosplay', '·', 'SDA17', '·', 'AI x Taiwanese Cuisine', '·', '呷飽未 Have You Eaten? E-Book', '·'];
     const tickerEl = document.getElementById('ticker');
     tickerEl.innerHTML = (ITEMS.map(t => `<span class="ticker-item">${t}</span>`).join('')).repeat(2);
     let x = 0;
     (function animTicker() { x -= 0.5; if (Math.abs(x) >= tickerEl.scrollWidth / 2) x = 0; tickerEl.style.transform = `translateX(${x}px)`; requestAnimationFrame(animTicker); })();
 
+    // NAV
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50), { passive: true });
 
+    // SMOOTH SCROLL
     document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => { const t = document.querySelector(a.getAttribute('href')); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); } }));
 
+    // REVEAL
     const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+    // UNIFIED LIGHTBOX
     const GALLERIES = {
       photo: [
         { src: 'assets/image1.png', caption: 'Photography · Angelina Chen · 1 / 5' },
@@ -2416,21 +2183,9 @@
         { src: 'assets/red4.png', caption: 'Xiaohongshu · Food @ Barcelona · 4 / 4' },
       ],
       cos: [
-        { src: 'assets/cos1.png', caption: 'Cosplay · Reze — Chainsaw Man · 1 / 4' },
-        { src: 'assets/cos1.png', caption: 'Cosplay · Bomb Devil (Reze) — Chainsaw Man · 2 / 4' },
-        { src: 'assets/cos2.png', caption: 'Cosplay · Frieren — Beyond Journey\'s End · 3 / 4' },
-        { src: 'assets/cos3.png', caption: 'Cosplay · Asuka — Neon Genesis Evangelion · 4 / 4' },
-      ],
-      'perf-shanghai': [
-        { src: 'assets/ex1.png', caption: 'Actions and Gestures · NYU Shanghai Exhibition · 1 / 4' },
-        { src: 'assets/ex2.png', caption: 'Linked · NYU Shanghai Exhibition · 2 / 4' },
-        { src: 'assets/ex3.png', caption: 'The Last Hour of Death Row · NYU Shanghai Exhibition · 3 / 4' },
-        { src: 'assets/ex4.png', caption: 'Typhoon · NYU Shanghai Exhibition · 4 / 4' },
-      ],
-      'perf-gesture': [
-        { src: 'assets/ps1.png', caption: 'Eyes on Me · Actions and Gestures · Off-Campus Exhibition · 1 / 3' },
-        { src: 'assets/ps2.png', caption: 'Eyes on Me · Actions and Gestures · Off-Campus Exhibition · 2 / 3' },
-        { src: 'assets/ps3.png', caption: 'Eyes on Me · Actions and Gestures · Off-Campus Exhibition · 3 / 3' },
+        { src: 'assets/cos1.png', caption: 'Cosplay · Reze — Chainsaw Man · 1 / 3' },
+        { src: 'assets/cos2.png', caption: 'Cosplay · Frieren — Beyond Journey\'s End · 2 / 3' },
+        { src: 'assets/cos3.png', caption: 'Cosplay · Asuka — Neon Genesis Evangelion · 3 / 3' },
       ],
     };
 

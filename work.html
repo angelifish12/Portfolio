@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Work — Angelina Chen</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=Space+Mono&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        :root {
+            --cream: #faf7f2;
+            --warm-white: #fff9f4;
+            --ink: #1a1209;
+            --brown: #4a3728;
+            --rose: #c8736a;
+            --rose-light: #f0c4bf;
+            --sage: #7a9e8e;
+            --sage-light: #c4dbd4;
+            --gold: #c9a84c;
+            --gold-light: #f0dfa8;
+            --muted: #8a7a6e;
+            --border: rgba(74, 55, 40, 0.12);
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'DM Sans', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 300;
+            color: var(--ink);
+            background: var(--cream);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.5;
+        }
+
+        /* TICKER */
+        .ticker-wrap {
+            background: var(--ink);
+            overflow: hidden;
+            padding: 0.6rem 0;
+            position: relative;
+            z-index: 50;
+        }
+
+        .ticker-inner {
+            display: flex;
+            white-space: nowrap;
+        }
+
+        .ticker-item {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--gold);
+            padding: 0 2rem;
+            flex-shrink: 0;
+            letter-spacing: 0.1em;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1.25rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.3s, border-bottom 0.3s;
+        }
+
+        nav.scrolled {
+            background: rgba(250, 247, 242, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            color: var(--ink);
+            font-style: italic;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.25rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.78rem;
+            font-weight: 400;
+            color: var(--muted);
+            text-decoration: none;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--rose);
+        }
+
+        .nav-cta {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            color: var(--ink);
+            background: var(--gold-light);
+            border: 1.5px solid var(--gold);
+            padding: 0.5rem 1.25rem;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold);
+            transform: translateY(-1px);
+        }
+
+        /* PAGE HERO */
+        .page-hero {
+            padding: 12rem 3rem 5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: end;
+        }
+
+        .page-hero-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            color: var(--rose);
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            opacity: 0;
+            animation: fadeUp 0.8s 0.1s ease forwards;
+        }
+
+        .page-hero-eyebrow::before {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 1px;
+            background: var(--rose);
+        }
+
+        .page-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            line-height: 1.05;
+            font-weight: 700;
+            color: var(--ink);
+            opacity: 0;
+            animation: fadeUp 0.8s 0.2s ease forwards;
+        }
+
+        .page-hero h1 em {
+            font-style: italic;
+            color: var(--rose);
+        }
+
+        .page-hero-desc {
+            font-size: 0.95rem;
+            color: var(--brown);
+            line-height: 1.9;
+            max-width: 400px;
+            opacity: 0;
+            animation: fadeUp 0.8s 0.3s ease forwards;
+            align-self: end;
+        }
+
+        /* FILTER BAR */
+        .filter-bar {
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+            padding: 0 3rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 0.8s 0.4s ease forwards;
+        }
+
+        .filter-btn {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.45rem 1rem;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--muted);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--rose);
+            color: var(--rose);
+        }
+
+        .filter-btn.active {
+            background: var(--rose);
+            color: white;
+            border-color: var(--rose);
+        }
+
+        /* PROJECTS GRID */
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem 7rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+
+        /* CARD BASE */
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            background: var(--warm-white);
+            border: 1.5px solid var(--border);
+            cursor: pointer;
+            transition: transform 0.35s ease, border-color 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--rose);
+        }
+
+        .project-card:hover .card-arrow {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        .project-card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .span-7 {
+            grid-column: span 7;
+        }
+
+        .span-5 {
+            grid-column: span 5;
+        }
+
+        .span-4 {
+            grid-column: span 4;
+        }
+
+        .span-6 {
+            grid-column: span 6;
+        }
+
+        .span-8 {
+            grid-column: span 8;
+        }
+
+        .span-12 {
+            grid-column: span 12;
+        }
+
+        .card-inner {
+            padding: 2.5rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 320px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-inner.tall {
+            min-height: 420px;
+        }
+
+        .card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(200, 115, 106, 0.06), rgba(201, 168, 76, 0.04));
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1;
+        }
+
+        .card-arrow {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            color: var(--rose);
+            opacity: 0;
+            transform: translate(-4px, 4px);
+            transition: opacity 0.3s, transform 0.3s;
+            text-decoration: none;
+            z-index: 3;
+        }
+
+        .card-num {
+            font-family: var(--font-display);
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: rgba(74, 55, 40, 0.05);
+            position: absolute;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            line-height: 1;
+            user-select: none;
+            z-index: 1;
+        }
+
+        .card-tag {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .tag-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.2rem, 2vw, 1.6rem);
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.15;
+            margin-bottom: 0.6rem;
+        }
+
+        .card-title em {
+            font-style: italic;
+            color: var(--rose);
+        }
+
+        .card-sub {
+            font-size: 0.78rem;
+            color: var(--muted);
+            margin-bottom: 1.25rem;
+            font-family: var(--font-mono);
+            letter-spacing: 0.06em;
+        }
+
+        .card-desc {
+            font-size: 0.83rem;
+            color: var(--brown);
+            line-height: 1.8;
+        }
+
+        .card-bottom {
+            margin-top: 2rem;
+        }
+
+        .card-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .tool-chip {
+            font-family: var(--font-mono);
+            font-size: 0.58rem;
+            letter-spacing: 0.08em;
+            padding: 0.28rem 0.65rem;
+            border: 1px solid var(--border);
+            color: var(--muted);
+        }
+
+        /* CARD VARIANTS */
+        .card-featured {
+            background: var(--ink);
+        }
+
+        .card-featured .card-title {
+            color: var(--cream);
+        }
+
+        .card-featured .card-title em {
+            color: var(--gold);
+        }
+
+        .card-featured .card-desc {
+            color: rgba(250, 247, 242, 0.65);
+        }
+
+        .card-featured .card-sub {
+            color: rgba(250, 247, 242, 0.4);
+        }
+
+        .card-featured .tool-chip {
+            border-color: rgba(250, 247, 242, 0.12);
+            color: rgba(250, 247, 242, 0.5);
+        }
+
+        .card-featured .card-tag {
+            color: var(--gold);
+        }
+
+        .card-featured .card-num {
+            color: rgba(250, 247, 242, 0.04);
+        }
+
+        .card-featured:hover {
+            border-color: var(--gold);
+        }
+
+        .card-featured .card-arrow {
+            color: var(--gold);
+        }
+
+        .card-featured .card-overlay {
+            background: linear-gradient(135deg, rgba(201, 168, 76, 0.08), rgba(200, 115, 106, 0.04));
+        }
+
+        .card-accent {
+            background: var(--rose);
+        }
+
+        .card-accent .card-title {
+            color: white;
+        }
+
+        .card-accent .card-title em {
+            color: var(--gold-light);
+            font-style: italic;
+        }
+
+        .card-accent .card-desc {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .card-accent .card-sub {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .card-accent .card-tag {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .card-accent .tool-chip {
+            border-color: rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .card-accent .card-num {
+            color: rgba(255, 255, 255, 0.06);
+        }
+
+        .card-accent:hover {
+            border-color: var(--gold);
+            transform: translateY(-6px);
+        }
+
+        .card-accent .card-arrow {
+            color: white;
+        }
+
+        .card-sage {
+            background: var(--sage-light);
+        }
+
+        .card-sage .card-title {
+            color: var(--ink);
+        }
+
+        .card-sage .card-desc {
+            color: var(--brown);
+        }
+
+        .card-sage .card-sub {
+            color: var(--sage);
+        }
+
+        .card-sage .card-tag {
+            color: var(--sage);
+        }
+
+        .card-sage:hover {
+            border-color: var(--sage);
+        }
+
+        /* SYNTHETIC BODY — video card */
+        .card-video {
+            background: var(--ink);
+            padding: 0;
+        }
+
+        .card-video-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.35;
+            transition: opacity 0.4s;
+            z-index: 0;
+        }
+
+        .card-video:hover .card-video-bg {
+            opacity: 0.6;
+        }
+
+        .card-video .card-inner {
+            background: linear-gradient(to top, rgba(26, 18, 9, 0.85) 40%, transparent);
+            z-index: 2;
+            justify-content: flex-end;
+        }
+
+        .card-video .card-title {
+            color: var(--cream);
+        }
+
+        .card-video .card-title em {
+            color: var(--sage-light);
+        }
+
+        .card-video .card-desc {
+            color: rgba(250, 247, 242, 0.6);
+        }
+
+        .card-video .card-sub {
+            color: rgba(250, 247, 242, 0.4);
+        }
+
+        .card-video .card-tag {
+            color: var(--sage-light);
+        }
+
+        .card-video .tool-chip {
+            border-color: rgba(250, 247, 242, 0.15);
+            color: rgba(250, 247, 242, 0.5);
+        }
+
+        .card-video .card-num {
+            color: rgba(250, 247, 242, 0.04);
+        }
+
+        .card-video:hover {
+            border-color: var(--sage);
+        }
+
+        .card-video .card-arrow {
+            color: var(--sage-light);
+        }
+
+        /* PLACEHOLDER */
+        .card-placeholder {
+            border-style: dashed;
+            background: transparent;
+        }
+
+        .card-placeholder .card-inner {
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .card-placeholder:hover {
+            border-color: var(--sage);
+            transform: none;
+        }
+
+        /* ROW LABELS */
+        .row-label {
+            grid-column: span 12;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .row-label-text {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            color: var(--muted);
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .row-label-line {
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* FILTER */
+        .project-card.hidden {
+            display: none;
+        }
+
+        /* BACK BAR */
+        .back-bar {
+            background: var(--ink);
+            padding: 4rem 3rem;
+            text-align: center;
+        }
+
+        .back-bar p {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            color: rgba(250, 247, 242, 0.35);
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        .back-link {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--cream);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(250, 247, 242, 0.2);
+            padding-bottom: 0.2rem;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--gold);
+            border-color: var(--gold);
+        }
+
+        footer {
+            background: var(--ink);
+            border-top: 1px solid rgba(250, 247, 242, 0.08);
+            text-align: center;
+            padding: 1.5rem 2rem;
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            letter-spacing: 0.12em;
+            color: rgba(250, 247, 242, 0.25);
+            text-transform: uppercase;
+        }
+
+        /* REVEAL */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.08s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.16s;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 0.24s;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:960px) {
+            .page-hero {
+                grid-template-columns: 1fr;
+                padding: 9rem 2rem 3rem;
+                gap: 1.5rem;
+            }
+
+            .filter-bar {
+                padding: 0 2rem;
+            }
+
+            .projects-container {
+                padding: 0 2rem 5rem;
+            }
+
+            .span-7,
+            .span-5,
+            .span-4,
+            .span-6,
+            .span-8,
+            .span-12 {
+                grid-column: span 12;
+            }
+
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media(max-width:600px) {
+            .page-hero {
+                padding: 8rem 1.5rem 2.5rem;
+            }
+
+            .filter-bar {
+                padding: 0 1.5rem;
+            }
+
+            .projects-container {
+                padding: 0 1.5rem 4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="ticker-wrap" aria-hidden="true">
+        <div class="ticker-inner" id="ticker"></div>
+    </div>
+
+    <nav id="nav">
+        <a href="index.html" class="nav-logo">Angelina Chen</a>
+        <ul class="nav-links">
+            <li><a href="index.html#experience">Experience</a></li>
+            <li><a href="index.html#wins">Results</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="work.html" class="active">Work</a></li>
+        </ul>
+        <a href="index.html#contact" class="nav-cta">Say Hello →</a>
+    </nav>
+
+    <div class="page-hero">
+        <div>
+            <div class="page-hero-eyebrow">Selected Projects & Work</div>
+            <h1>My <em>work</em></h1>
+        </div>
+        <p class="page-hero-desc">A collection of interactive media, brand campaigns, community work, and 3D design —
+            spanning digital storytelling, marketing, and creative coding.</p>
+    </div>
+
+    <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="interactive">Interactive & Code</button>
+        <button class="filter-btn" data-filter="brand">Brand & Marketing</button>
+        <button class="filter-btn" data-filter="3d">3D & Design</button>
+        <button class="filter-btn" data-filter="community">Community</button>
+        <button class="filter-btn" data-filter="photo">Photography</button>
+    </div>
+
+    <div class="projects-container">
+        <div class="projects-grid">
+
+            <!-- ROW: Interactive -->
+            <div class="row-label reveal"><span class="row-label-text">Interactive & Code</span><span
+                    class="row-label-line"></span></div>
+
+            <!-- 01 Dear Dream Me -->
+            <div class="project-card card-featured span-7 reveal" data-category="interactive">
+                <div class="card-overlay"></div>
+                <a class="card-arrow" href="https://angelifish12.github.io/CClab/project-b/" target="_blank"
+                    rel="noopener">↗</a>
+                <div class="card-num">01</div>
+                <div class="card-inner tall">
+                    <div>
+                        <div class="card-tag" style="color:var(--gold)"><span class="tag-dot"
+                                style="background:var(--gold)"></span>Interactive · ml5.js</div>
+                        <div class="card-title">Dear Dream <em>Me</em></div>
+                        <div class="card-sub">Face Modification Web App · 2024</div>
+                        <div class="card-desc">A live webcam experience that lets users distort and reimagine their own
+                            face using a suite of tools. Exploring beauty standards, self-image, and digital editing
+                            culture through hands-on interaction. Built with p5.js and ml5 FaceMesh — combining computer
+                            vision with a critical lens on how we modify and idealise the self.</div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-tools">
+                            <span class="tool-chip">p5.js</span><span class="tool-chip">ml5 FaceMesh</span><span
+                                class="tool-chip">JavaScript</span><span class="tool-chip">Computer Vision</span><span
+                                class="tool-chip">UI Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 02 Tooth Fairy -->
+            <div class="project-card span-5 reveal reveal-delay-1" data-category="interactive">
+                <div class="card-overlay"></div>
+                <a class="card-arrow" href="https://angelifish12.github.io/CommLab/tooth-fairy/" target="_blank"
+                    rel="noopener">↗</a>
+                <div class="card-num">02</div>
+                <div class="card-inner tall">
+                    <div>
+                        <div class="card-tag" style="color:var(--rose)"><span class="tag-dot"
+                                style="background:var(--rose)"></span>Interactive · Web Story</div>
+                        <div class="card-title">When the Tooth <em>Dropped</em></div>
+                        <div class="card-sub">Interactive Storytelling · 2024</div>
+                        <div class="card-desc">A reimagining of the tooth fairy story as a web-based immersive
+                            experience. User-triggered events, sound design, scroll-based sequences, and playful
+                            interface design come together to recreate the wonder and strangeness of a childhood myth.
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-tools">
+                            <span class="tool-chip">HTML / CSS</span><span class="tool-chip">JavaScript</span><span
+                                class="tool-chip">Sound Design</span><span class="tool-chip">Scroll Interaction</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 03 好 Hǎo — AI E-Book (full width, video) -->
+            <div class="project-card card-video span-12 reveal" data-category="interactive" style="min-height:380px">
+                <div class="card-overlay"></div>
+                <div class="card-num" style="color:rgba(196,219,212,0.05)">03</div>
+                <video class="card-video-bg" autoplay muted loop playsinline>
+                    <source src="assets/hye.mp4" type="video/mp4">
+                </video>
+                <div class="card-inner"
+                    style="min-height:380px;background:linear-gradient(to right,rgba(26,18,9,0.88) 40%,rgba(26,18,9,0.3) 100%);max-width:600px">
+                    <div>
+                        <div class="card-tag"><span class="tag-dot" style="background:var(--rose-light)"></span>E-Book ·
+                            AI · Taiwanese Cuisine</div>
+                        <div class="card-title" style="font-size:clamp(1.6rem,3vw,2.4rem)">好 <em>Hǎo</em></div>
+                        <div class="card-sub">AI-Assisted E-Book · 5 Dishes · Pika Animation · 2025</div>
+                        <div class="card-desc">An e-book reimagining five iconic Taiwanese dishes through the lens of
+                            artificial intelligence — probing the dilemma and inevitability of AI in food culture and
+                            creative practice. Hand-drawn sketches of each dish were fed into Pika to generate 5-second
+                            animations, collapsing the boundary between human craft and machine vision. The tension
+                            between authenticity and generation sits at the heart of every page.</div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-tools">
+                            <span class="tool-chip">Pika AI</span>
+                            <span class="tool-chip">Illustration</span>
+                            <span class="tool-chip">Animation</span>
+                            <span class="tool-chip">Editorial Design</span>
+                            <span class="tool-chip">Taiwanese Culture</span>
+                            <span class="tool-chip">AI Critique</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROW: Brand -->
+            <div class="row-label reveal"><span class="row-label-text">Brand & Marketing</span><span
+                    class="row-label-line"></span></div>
+
+            <!-- 03 Condé Nast -->
+            <div class="project-card card-accent span-5 reveal" data-category="brand">
+                <div class="card-overlay"
+                    style="background:linear-gradient(135deg,rgba(255,255,255,0.06),rgba(201,168,76,0.04))"></div>
+                <a class="card-arrow" href="https://www.lindsayliu.art/" target="_blank" rel="noopener"
+                    style="color:white">↗</a>
+                <div class="card-num">03</div>
+                <div class="card-inner">
+                    <div>
+                        <div class="card-tag"><span class="tag-dot"
+                                style="background:white;opacity:0.6"></span>Marketing · Campaign</div>
+                        <div class="card-title">GQ Style Fest <em>Campaign</em></div>
+                        <div class="card-sub">Condé Nast · Taipei · 2025</div>
+                        <div class="card-desc">End-to-end social execution for Condé Nast Taiwan's flagship editorial
+                            event. Owned Gen Z–targeted copy, content calendars, community moderation, and campaign
+                            timing. Result: 1M+ cumulative views and 1,000+ Instagram followers gained in a single week.
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-tools">
+                            <span class="tool-chip">Instagram</span><span class="tool-chip">TikTok</span><span
+                                class="tool-chip">Meta Business Suite</span><span class="tool-chip">Google
+                                Analytics</span><span class="tool-chip">Copywriting</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 04 Ravenel -->
+            <div class="project-card span-4 reveal reveal-delay-1" data-category="brand">
+                <div class="card-overlay"></div>
+                <div class="card-num">04</div>
+                <div class="card-inner">
+                    <div>
+                        <div class="card-tag" style="color:var(--gold)"><span class="tag-dot"
+                                style="background:var(--gold)"></span>Strategy · Art & Luxury</div>
+                        <div class="card-title">Ravenel <em>Audience</em> Expansion</div>
+                        <div class="card-sub">Ravenel Art Group · 2023</div>
+                        <div class="card-desc">Shifted Ravenel's Instagram strategy from existing collectors to younger
+                            demographics by anchoring content to cultural trends like "Dopamine Dressing" — achieving a
+                            5× engagement increase. Also produced bilingual artist bios for 50+ artists.</div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-tools"><span class="tool-chip">Social Strategy</span><span
+                                class="tool-chip">Bilingual Copy (EN/ZH)</span><span class="tool-chip">Trend
+                                Research</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 05 Nada Holdings -->
+            <div class="project-card span-3 reveal reveal-delay-2" data-category="brand">
+                <div class="card-overlay"></div>
+                <div class="card-num">05</div>
+                <div class="card-inner">
+                    <div>
+                        <div class="card-tag" style="color:var(--rose)"><span class="tag-dot"
+                                style="background:var(--rose)"></span>Licensing · Research</div>
+                        <div class="card-title">Anime IP <em>Evaluation</em></div>
+                        <div class="card-sub">Nada Holdings · 2023</div>
+                        <div class="card-desc">Evaluated 500+ anime titles and built a ranking framework to forecast
+                            audience potential for Taiwan licensing. Facilitated cross-border partnerships between
+                            Taiwan and Japan markets.</div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-tools"><span class="tool-chip">Market Research</span><span
+                                class="tool-chip">Japan-Language Intel</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROW: 3D -->
+            <div class="row-label reveal"><span class="row-label-text">3D & Spatial Design</span><span
+                    class="row-label-line"></span></div>
+
+            <!-- 06 Synthetic Body — VIDEO CARD -->
+            <div class="project-card card-video span-8 reveal" data-category="3d">
+                <div class="card-overlay"></div>
+                <div class="card-num" style="color:rgba(196,219,212,0.06)">06</div>
+                <!-- Video with hand.png as poster so something shows before video loads -->
+                <video class="card-video-bg" autoplay muted loop playsinline poster="assets/hand.png">
+                    <source src="assets/synthetic_body.mp4" type="video/mp4">
+                </video>
+                <div class="card-inner tall">
+                    <div>
+                        <div class="card-tag"><span class="tag-dot" style="background:var(--sage-light)"></span>3D ·
+                            Parametric · Organic</div>
+                        <div class="card-title">Synthetic <em>Body</em></div>
+                        <div class="card-sub">Rhinoceros 3D · Grasshopper · Blender</div>
+                        <div class="card-desc">Parametric explorations of the human form — branching structures, 3D
+                            print support systems, and organic geometry grown from palm to fingertip. At the
+                            intersection of body, machine, and nature: prosthetics reimagined as living architecture.
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-tools">
+                            <span class="tool-chip">Rhinoceros 3D</span><span class="tool-chip">Grasshopper</span><span
+                                class="tool-chip">Blender</span><span class="tool-chip">Parametric Design</span><span
+                                class="tool-chip">3D Printing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 07 3D placeholder -->
+            <div class="project-card card-placeholder span-4 reveal reveal-delay-1" data-category="3d"
+                style="border-color:rgba(122,158,142,0.3)">
+                <div class="card-num" style="color:rgba(122,158,142,0.06)">07</div>
+                <div class="card-inner" style="min-height:280px">
+                    <div
+                        style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.15em;color:var(--muted);text-transform:uppercase;margin-bottom:0.75rem">
+                        More 3D Work</div>
+                    <div style="font-family:var(--font-display);font-size:1.1rem;color:var(--brown);font-style:italic">
+                        Coming Soon</div>
+                    <p
+                        style="font-size:0.78rem;color:var(--muted);line-height:1.7;margin-top:0.75rem;text-align:center;max-width:260px">
+                        Additional spatial design and Rhino/Blender projects to be added here.</p>
+                </div>
+            </div>
+
+            <!-- ROW: Community -->
+            <div class="row-label reveal"><span class="row-label-text">Community & Events</span><span
+                    class="row-label-line"></span></div>
+
+            <!-- 08 SDA17 -->
+            <div class="project-card card-sage span-6 reveal" data-category="community">
+                <div class="card-overlay"></div>
+                <a class="card-arrow" href="https://www.sda17.org/" target="_blank" rel="noopener"
+                    style="color:var(--sage)">↗</a>
+                <div class="card-num">08</div>
+                <div class="card-inner">
+                    <div>
+                        <div class="card-tag"><span class="tag-dot" style="background:var(--sage)"></span>Activities
+                            Manager · Volunteer</div>
+                        <div class="card-title">Stray Dog Shelter <em>Event Lead</em></div>
+                        <div class="card-sub">SDA17 · Activities Manager</div>
+                        <div class="card-desc">Served as Activities Manager at SDA17, an organisation supporting stray
+                            animal welfare. Led an event at a stray dog shelter — coordinating volunteers,
+                            communications, and on-the-ground logistics. A project rooted in community care, empathy,
+                            and purposeful organising.</div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-tools"><span class="tool-chip">Event Management</span><span
+                                class="tool-chip">Volunteer Coordination</span><span class="tool-chip">Community
+                                Outreach</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 09 Campus orgs -->
+            <div class="project-card span-6 reveal reveal-delay-1" data-category="community">
+                <div class="card-overlay"></div>
+                <div class="card-num">09</div>
+                <div class="card-inner">
+                    <div>
+                        <div class="card-tag" style="color:var(--rose)"><span class="tag-dot"
+                                style="background:var(--rose)"></span>Campus Leadership · NYU</div>
+                        <div class="card-title">Cultural <em>Community</em> Building</div>
+                        <div class="card-sub">Fusion Film Festival · JCA · IPAC · 2024–Present</div>
+                        <div class="card-desc">Across three NYU organisations, designed Instagram campaigns, produced
+                            branded social assets, coordinated newsletters, and created short-form content to grow
+                            program participation. Built community around Japanese culture, anime, film, and
+                            international programming.</div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-tools"><span class="tool-chip">Social Media</span><span class="tool-chip">Brand
+                                Assets</span><span class="tool-chip">Newsletter</span><span class="tool-chip">Short-form
+                                Video</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROW: Photography -->
+            <div class="row-label reveal"><span class="row-label-text">Photography</span><span
+                    class="row-label-line"></span></div>
+
+            <!-- 10 Photography -->
+            <div class="project-card span-12 reveal" data-category="photo">
+                <div class="card-overlay"></div>
+                <div class="card-num">10</div>
+                <div class="card-inner"
+                    style="min-height:220px;flex-direction:row;align-items:center;gap:3rem;flex-wrap:wrap;">
+                    <div style="flex:1;min-width:220px">
+                        <div class="card-tag" style="color:var(--brown)"><span class="tag-dot"
+                                style="background:var(--brown)"></span>Photography · Featured</div>
+                        <div class="card-title">PhotoVogue & <em>VSCO</em></div>
+                        <div class="card-sub">Vogue Italia · PhotoVogue · Culture Theme</div>
+                        <div class="card-desc">Work featured on the official PhotoVogue website under the "Culture"
+                            theme, highlighting Korean culture. Shoots with a Ricoh GR2 and iPhone 13 Pro. A consistent,
+                            film-forward aesthetic across platforms.</div>
+                        <div class="card-tools" style="margin-top:1.25rem">
+                            <span class="tool-chip">Ricoh GR2</span><span class="tool-chip">iPhone 13 Pro</span><span
+                                class="tool-chip">Adobe Lightroom</span>
+                            <a href="https://vs.co/vlfqk0st" target="_blank" rel="noopener"
+                                style="font-family:var(--font-mono);font-size:0.58rem;letter-spacing:0.08em;padding:0.28rem 0.65rem;border:1px solid var(--gold);color:var(--gold);text-decoration:none;display:inline-block;transition:background 0.2s"
+                                onmouseover="this.style.background='var(--gold-light)'"
+                                onmouseout="this.style.background='transparent'">VSCO ↗</a>
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:1rem;flex-wrap:wrap">
+                        <img src="assets/image1.png" alt="Photo by Angelina Chen"
+                            style="width:160px;height:160px;object-fit:cover;cursor:pointer;transition:transform 0.2s,filter 0.2s"
+                            onmouseover="this.style.transform='scale(1.04)'"
+                            onmouseout="this.style.transform='scale(1)'" onclick="openLb(0)">
+                        <img src="assets/image2.png" alt="Photo by Angelina Chen"
+                            style="width:160px;height:160px;object-fit:cover;cursor:pointer;transition:transform 0.2s,filter 0.2s"
+                            onmouseover="this.style.transform='scale(1.04)'"
+                            onmouseout="this.style.transform='scale(1)'" onclick="openLb(1)">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox"
+        style="position:fixed;inset:0;background:rgba(26,18,9,0.94);z-index:10000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s;backdrop-filter:blur(10px)">
+        <button onclick="closeLb()"
+            style="position:absolute;top:2rem;right:2rem;font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.15em;color:rgba(250,247,242,0.5);text-transform:uppercase;cursor:pointer;background:none;border:1px solid rgba(250,247,242,0.15);padding:0.45rem 1rem;transition:color 0.2s"
+            onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(250,247,242,0.5)'">✕
+            Close</button>
+        <button onclick="openLb(lbIdx-1)"
+            style="position:absolute;left:1.5rem;top:50%;transform:translateY(-50%);font-size:1.3rem;color:rgba(250,247,242,0.4);cursor:pointer;background:none;border:none;padding:1rem;font-family:var(--font-mono)"
+            onmouseover="this.style.color='var(--gold)'"
+            onmouseout="this.style.color='rgba(250,247,242,0.4)'">←</button>
+        <img id="lb-img" src="" alt="Photo" style="max-width:86vw;max-height:80vh;object-fit:contain;display:block">
+        <button onclick="openLb(lbIdx+1)"
+            style="position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);font-size:1.3rem;color:rgba(250,247,242,0.4);cursor:pointer;background:none;border:none;padding:1rem;font-family:var(--font-mono)"
+            onmouseover="this.style.color='var(--gold)'"
+            onmouseout="this.style.color='rgba(250,247,242,0.4)'">→</button>
+        <div id="lb-cap"
+            style="position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.12em;color:rgba(250,247,242,0.3);text-transform:uppercase;white-space:nowrap">
+        </div>
+    </div>
+
+    <div class="back-bar">
+        <p>See the full picture</p>
+        <a href="index.html" class="back-link">← Back to Portfolio</a>
+    </div>
+
+    <footer>© 2026 Angelina Chen (Jia-Jhih Chen) · NYU Steinhardt · Manhattan, NY</footer>
+
+    <script>
+        // TICKER
+        const ITEMS = ['Dear Dream Me', '·', '好 Hǎo E-Book', '·', 'Synthetic Body', '·', 'Tooth Fairy Story', '·', 'Condé Nast', '·', 'GQ Style Fest', '·', '1M+ Views', '·', 'Ravenel Art Group', '·', '5× Engagement', '·', 'Rhinoceros 3D', '·', 'Blender', '·', 'PhotoVogue Featured', '·', 'SDA17', '·', 'Stray Dog Shelter', '·', 'p5.js', '·', 'ml5 FaceMesh', '·', 'AI × Taiwanese Cuisine', '·', 'Interactive Media', '·'];
+        const tickerEl = document.getElementById('ticker');
+        tickerEl.innerHTML = (ITEMS.map(t => `<span class="ticker-item">${t}</span>`).join('')).repeat(2);
+        let x = 0;
+        (function animTicker() { x -= 0.5; if (Math.abs(x) >= tickerEl.scrollWidth / 2) x = 0; tickerEl.style.transform = `translateX(${x}px)`; requestAnimationFrame(animTicker); })();
+
+        // NAV
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50), { passive: true });
+
+        // FILTER
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const f = btn.dataset.filter;
+                document.querySelectorAll('.project-card[data-category]').forEach(card => {
+                    card.classList.toggle('hidden', f !== 'all' && card.dataset.category !== f);
+                });
+            });
+        });
+
+        // REVEAL
+        const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+        // LIGHTBOX
+        const PHOTOS = [
+            { src: 'assets/image1.png', caption: 'Photography · Angelina Chen · 1 / 2' },
+            { src: 'assets/image2.png', caption: 'Photography · Angelina Chen · 2 / 2' },
+        ];
+        let lbIdx = 0;
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lb-img');
+        const lbCap = document.getElementById('lb-cap');
+        function openLb(i) { lbIdx = ((i % PHOTOS.length) + PHOTOS.length) % PHOTOS.length; lbImg.src = PHOTOS[lbIdx].src; lbCap.textContent = PHOTOS[lbIdx].caption; lb.style.opacity = '1'; lb.style.pointerEvents = 'all'; document.body.style.overflow = 'hidden'; }
+        function closeLb() { lb.style.opacity = '0'; lb.style.pointerEvents = 'none'; document.body.style.overflow = ''; }
+        lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+        document.addEventListener('keydown', e => { if (lb.style.opacity === '1') { if (e.key === 'Escape') closeLb(); if (e.key === 'ArrowLeft') openLb(lbIdx - 1); if (e.key === 'ArrowRight') openLb(lbIdx + 1); } });
+    </script>
+</body>
+
+</html>
