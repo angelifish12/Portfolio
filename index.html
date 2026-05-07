@@ -516,7 +516,6 @@
       transform: translate(0, 0);
     }
 
-    /* Synthetic Body video card */
     .work-teaser-card.has-video {
       padding: 0;
     }
@@ -708,6 +707,79 @@
     .exp-art-strip img:hover {
       transform: scale(1.07);
       border-color: var(--gold);
+    }
+
+    /* ── ARTICLE LINKS strip (Condé Nast) ── */
+    .exp-articles {
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .exp-articles-label {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .article-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .article-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      text-decoration: none;
+      padding: 0.55rem 0.75rem;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.6);
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+
+    .article-link:hover {
+      border-color: var(--gold);
+      background: white;
+      transform: translateX(3px);
+    }
+
+    .article-link-pub {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--rose);
+      white-space: nowrap;
+      padding-top: 0.1rem;
+      flex-shrink: 0;
+    }
+
+    .article-link-title {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      color: var(--brown);
+      line-height: 1.45;
+    }
+
+    .article-link-arrow {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--gold);
+      margin-left: auto;
+      flex-shrink: 0;
+      align-self: center;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .article-link:hover .article-link-arrow {
+      opacity: 1;
     }
 
     /* WINS */
@@ -1023,7 +1095,7 @@
       text-transform: uppercase;
     }
 
-    /* PHOTO THUMBNAILS */
+    /* Photo thumbs */
     .photo-thumbs {
       display: flex;
       gap: 0.6rem;
@@ -1045,7 +1117,7 @@
       transform: scale(1.06);
     }
 
-    /* XHS photo strip */
+    /* XHS thumbs */
     .xhs-thumbs {
       display: flex;
       gap: 0.5rem;
@@ -1153,7 +1225,7 @@
       white-space: nowrap;
     }
 
-    /* COSPLAY SECTION */
+    /* COSPLAY */
     #cosplay {
       background: var(--cream);
       overflow: hidden;
@@ -1165,13 +1237,12 @@
 
     .cosplay-layout {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
       gap: 1.5px;
       background: var(--border);
       border: 1.5px solid var(--border);
     }
 
-    /* first card is video-driven */
     .cos-card {
       background: var(--warm-white);
       position: relative;
@@ -1182,10 +1253,6 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-    }
-
-    .cos-card:hover {
-      background: var(--cream);
     }
 
     .cos-card:hover .cos-overlay {
@@ -1333,7 +1400,6 @@
       line-height: 1.7;
     }
 
-    /* SDA17 card accent */
     .leadership-card.sda-card {
       border-color: var(--sage);
       background: rgba(122, 158, 142, 0.05);
@@ -1642,10 +1708,7 @@
           <h2 class="section-title">Things I've <em>made</em></h2>
         </div>
       </div>
-
       <div class="work-teaser-grid">
-
-        <!-- Dear Dream Me -->
         <a href="https://angelifish12.github.io/CClab/project-b/" target="_blank" rel="noopener"
           class="work-teaser-card reveal">
           <span class="wt-arrow">↗</span>
@@ -1654,8 +1717,6 @@
           <div class="wt-desc">A live face modification app using p5.js and ml5 FaceMesh — exploring beauty, self-image,
             and digital editing culture through hands-on interaction.</div>
         </a>
-
-        <!-- Tooth Fairy -->
         <a href="https://angelifish12.github.io/CommLab/tooth-fairy/" target="_blank" rel="noopener"
           class="work-teaser-card reveal reveal-delay-1">
           <span class="wt-arrow">↗</span>
@@ -1664,8 +1725,6 @@
           <div class="wt-desc">A reimagining of the tooth fairy myth as an immersive scroll-based web experience with
             sound design and playful interaction.</div>
         </a>
-
-        <!-- Synthetic Body — video background -->
         <div class="work-teaser-card has-video reveal reveal-delay-2">
           <span class="wt-arrow" style="color:var(--sage-light)">↗</span>
           <video class="wt-video-bg" autoplay muted loop playsinline poster="assets/hand.png">
@@ -1678,9 +1737,7 @@
               and organic geometry at the intersection of body and machine.</div>
           </div>
         </div>
-
       </div>
-
       <div class="work-teaser-cta reveal">
         <a href="work.html" class="btn-work">View Full Portfolio →</a>
       </div>
@@ -1694,10 +1751,12 @@
         <div class="section-num">01</div>
         <div class="section-title-group">
           <div class="section-eyebrow">Work History</div>
-          <h2 class="section-title">Real-world <em>experience</em></h2>
+          <h2 class="section-title">Working <em>experience</em></h2>
         </div>
       </div>
       <div class="exp-grid">
+
+        <!-- CONDÉ NAST -->
         <div class="exp-card reveal">
           <div class="exp-period">Jun 2025 – Aug 2025</div>
           <div class="exp-company">Condé Nast</div>
@@ -1711,7 +1770,52 @@
             <li>Researched micro-community leaders; presented partnership potentials to senior staff</li>
             <li>Scripted artist ID lines and edited short-form videos achieving 1M+ cross-platform views</li>
           </ul>
+
+          <!-- ── PUBLISHED ARTICLES ── -->
+          <div class="exp-articles">
+            <div class="exp-articles-label">Published · GQ &amp; Vogue Taiwan</div>
+            <div class="article-links">
+
+              <a class="article-link"
+                href="https://www.gq.com.tw/article/2025-gq-style-fest-%E6%BD%AE%E6%B5%81%E6%96%87%E5%8C%96%E7%A5%AD%E7%89%B9%E5%88%A5%E5%A0%B1%E5%B0%8E"
+                target="_blank" rel="noopener">
+                <span class="article-link-pub">GQ TW</span>
+                <span class="article-link-title">2025 GQ STYLE FEST 潮流文化祭 打造全新展區！從球場到電競，從明星球員到啦啦隊女神，8月首度登場松菸倉庫</span>
+                <span class="article-link-arrow">↗</span>
+              </a>
+
+              <a class="article-link" href="https://www.vogue.com.tw/article/2025-gq-stylefest" target="_blank"
+                rel="noopener">
+                <span class="article-link-pub">Vogue TW</span>
+                <span class="article-link-title">「2025 GQ STYLE FEST 潮流文化祭」今夏強勢登場！潮人打卡新熱點、限定市集、美食一次看
+                </span>
+                <span class="article-link-arrow">↗</span>
+              </a>
+
+              <a class="article-link" href="https://www.gq.com.tw/article/2025-gq-style-fest-preview" target="_blank"
+                rel="noopener">
+                <span class="article-link-pub">GQ TW</span>
+                <span class="article-link-title">【2025GQ潮流文化祭】NBA 名人堂球星 Carmelo Anthony、「最強高中生」Ray 擔任活動大使，頑童、FEniX
+                  熱烈開唱，十大亮點齊聚松菸倉庫！
+                </span>
+                <span class="article-link-arrow">↗</span>
+              </a>
+
+              <a class="article-link"
+                href="https://www.gq.com.tw/article/2025gq%E6%BD%AE%E6%B5%81%E6%96%87%E5%8C%96%E7%A5%AD%E6%BD%AE%E6%B5%81%E7%BE%8E%E9%A3%9F%E5%B8%82%E9%9B%86%E5%A4%A7%E5%85%AC%E9%96%8B%E5%BF%85%E5%90%83%E8%A9%B1%E9%A1%8C%E7%BE%8E%E9%A3%9F%E9%99%90%E5%AE%9A%E8%81%AF%E5%90%8D%E4%BD%B3%E9%A4%9Avip-%E5%B0%88%E5%B1%AC%E9%A4%90%E9%A3%9F%E4%B8%80%E6%AC%A1%E7%9C%8B"
+                target="_blank" rel="noopener">
+                <span class="article-link-pub">GQ TW</span>
+                <span class="article-link-title">潮流美食市集大公開 — 必吃話題美食 &amp; VIP 專屬餐飲</span>
+                <span class="article-link-arrow">↗</span>
+              </a>
+
+            </div>
+          </div>
+          <!-- ── END ARTICLES ── -->
+
         </div>
+
+        <!-- NADA HOLDINGS -->
         <div class="exp-card reveal reveal-delay-1">
           <div class="exp-period">Nov 2023 – Dec 2023</div>
           <div class="exp-company">Nada Holdings</div>
@@ -1724,6 +1828,8 @@
             <li>Facilitated cross-border partnership discussions between Taiwan and Japan markets</li>
           </ul>
         </div>
+
+        <!-- RAVENEL ART GROUP -->
         <div class="exp-card reveal reveal-delay-2">
           <div class="exp-period">Aug 2023 – Oct 2023</div>
           <div class="exp-company">Ravenel Art Group</div>
@@ -1744,6 +1850,7 @@
               data-index="2">
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -1897,7 +2004,7 @@
               rel="noopener" style="color:var(--gold);text-decoration:none">Red Note ↗</a></div>
         </div>
 
-        <!-- Photography — lightbox trigger -->
+        <!-- Photography -->
         <div class="media-card reveal reveal-delay-2" id="photo-card" role="button" tabindex="0"
           aria-label="Open photography gallery">
           <div class="media-platform"><span class="platform-dot photo"></span>PhotoVogue · VSCO</div>
@@ -1930,10 +2037,7 @@
           <h2 class="section-title">Cosplay & <em>creative identity</em></h2>
         </div>
       </div>
-
       <div class="cosplay-layout">
-
-        <!-- Reze — video bomb.mp4 -->
         <div class="cos-card reveal" data-gallery="cos" data-index="0" style="cursor:pointer" tabindex="0"
           aria-label="View Reze cosplay">
           <div class="cos-play-badge">Video</div>
@@ -1946,8 +2050,6 @@
             <div class="cos-series">Chainsaw Man</div>
           </div>
         </div>
-
-        <!-- Frieren — cos2.png -->
         <div class="cos-card reveal reveal-delay-1" data-gallery="cos" data-index="1" tabindex="0"
           aria-label="View Frieren cosplay">
           <img class="cos-img" src="assets/cos2.png" alt="Cosplay as Frieren from Frieren: Beyond Journey's End">
@@ -1957,8 +2059,6 @@
             <div class="cos-series">Frieren: Beyond Journey's End</div>
           </div>
         </div>
-
-        <!-- Asuka — cos3.png -->
         <div class="cos-card reveal reveal-delay-2" data-gallery="cos" data-index="2" tabindex="0"
           aria-label="View Asuka cosplay">
           <img class="cos-img" src="assets/cos3.png" alt="Cosplay as Asuka from Neon Genesis Evangelion">
@@ -1968,10 +2068,7 @@
             <div class="cos-series">Neon Genesis Evangelion</div>
           </div>
         </div>
-
       </div>
-
-      <!-- Note about cos1.png as Reze still photo -->
       <p style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase;margin-top:1.5rem;text-align:center;"
         class="reveal">
         Costume craftsmanship, character research, and art direction — all self-produced
@@ -1990,8 +2087,6 @@
         </div>
       </div>
       <div class="leadership-grid">
-
-        <!-- SDA17 — Activities Manager -->
         <div class="leadership-card sda-card reveal">
           <div class="sda-badge">Community ↗</div>
           <div class="lship-period">Ongoing</div>
@@ -2002,7 +2097,6 @@
             shelters with the community. Supported and co-executed additional community programs — handling logistics,
             outreach, and on-site coordination to ensure smooth, impactful experiences for all attendees.</div>
         </div>
-
         <div class="leadership-card reveal reveal-delay-1">
           <div class="lship-period">Oct 2024 – Present</div>
           <div class="lship-role">Media Officer</div>
@@ -2070,7 +2164,7 @@
     const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    // UNIFIED LIGHTBOX GALLERIES
+    // UNIFIED LIGHTBOX
     const GALLERIES = {
       photo: [
         { src: 'assets/image1.png', caption: 'Photography · Angelina Chen · 1 / 5' },
@@ -2097,8 +2191,7 @@
       ],
     };
 
-    let lbGallery = 'photo';
-    let lbIdx = 0;
+    let lbGallery = 'photo', lbIdx = 0;
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lb-img');
     const lbCap = document.getElementById('lb-caption');
@@ -2120,24 +2213,17 @@
       lbCap.textContent = photos[lbIdx].caption;
     }
 
-    // Photo thumbs
     document.querySelectorAll('[data-gallery]').forEach(el => {
       el.addEventListener('click', e => {
         e.stopPropagation();
-        const gallery = el.dataset.gallery;
-        const idx = parseInt(el.dataset.index, 10);
-        // cos cards: open lightbox with cos1.png still
-        if (gallery === 'cos') { openLb('cos', idx); return; }
-        openLb(gallery, idx);
+        openLb(el.dataset.gallery, parseInt(el.dataset.index, 10));
       });
     });
 
-    // Photo card fallback click
     const photoCard = document.getElementById('photo-card');
     photoCard.addEventListener('click', () => openLb('photo', 0));
     photoCard.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb('photo', 0); } });
 
-    // Cosplay cards keyboard
     document.querySelectorAll('.cos-card').forEach(card => {
       card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb('cos', parseInt(card.dataset.index, 10)); } });
     });
