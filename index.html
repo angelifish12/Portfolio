@@ -687,6 +687,39 @@
       color: var(--rose-light);
     }
 
+    /* Current role badge */
+    .exp-current-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--sage);
+      color: white;
+      padding: 0.28rem 0.65rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .exp-current-badge::before {
+      content: '●';
+      font-size: 0.45rem;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+    }
+
     /* Art photo strip */
     .exp-art-strip {
       display: flex;
@@ -709,7 +742,7 @@
       border-color: var(--gold);
     }
 
-    /* ── ARTICLE LINKS strip (Condé Nast) ── */
+    /* Article links */
     .exp-articles {
       margin-top: 1.5rem;
       padding-top: 1.25rem;
@@ -780,6 +813,24 @@
 
     .article-link:hover .article-link-arrow {
       opacity: 1;
+    }
+
+    /* Client tags */
+    .exp-clients {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1.25rem;
+    }
+
+    .exp-client-tag {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      padding: 0.28rem 0.7rem;
+      border: 1px solid var(--border);
+      color: var(--brown);
+      background: white;
     }
 
     /* WINS */
@@ -1095,7 +1146,6 @@
       text-transform: uppercase;
     }
 
-    /* Photo thumbs */
     .photo-thumbs {
       display: flex;
       gap: 0.6rem;
@@ -1117,7 +1167,6 @@
       transform: scale(1.06);
     }
 
-    /* XHS thumbs */
     .xhs-thumbs {
       display: flex;
       gap: 0.5rem;
@@ -1651,13 +1700,13 @@
   <!-- HERO -->
   <section id="hero" aria-label="Introduction">
     <div class="hero-left">
-      <div class="hero-eyebrow">Available for Marketing Internships · 2026</div>
+      <div class="hero-eyebrow">Seeking Fall 2026 Internships · Open to Opportunities</div>
       <h1 class="hero-h1">Angelina <em>Chen</em></h1>
       <div class="hero-h1-sub">Marketing & Media</div>
       <p class="hero-desc">
-        NYU Media, Culture, and Communication student with hands-on experience at Condé Nast and international art
+        NYU Media, Culture, and Communication student with experience at Dentsu, Condé Nast, and international art
         auction houses. I build brands through content, data, and storytelling that connects — across TikTok,
-        Xiaohongshu, Instagram, Facebook, and beyond.
+        Xiaohongshu, Instagram, and beyond.
       </p>
       <div class="hero-stats">
         <div>
@@ -1679,17 +1728,19 @@
       <div class="hero-deco-text">AC</div>
       <div class="hero-right-inner">
         <div class="hero-accent-card">
-          <div class="hero-accent-card-label">Latest Role</div>
-          <div class="hero-accent-card-title">Consumer Marketing Intern</div>
-          <div class="hero-accent-card-sub">Condé Nast · Taipei, Taiwan · 2025</div>
+          <div class="hero-accent-card-label">Current Role</div>
+          <div class="hero-accent-card-title">Marketing Intern · dentsuX</div>
+          <div class="hero-accent-card-sub">Dentsu · Taipei · 2026</div>
         </div>
         <div class="hero-badge-grid">
-          <span class="hero-badge active">Condé Nast</span>
+          <span class="hero-badge active">Dentsu</span>
+          <span class="hero-badge">Condé Nast</span>
           <span class="hero-badge">Ravenel Art Group</span>
           <span class="hero-badge">Nada Holdings</span>
           <span class="hero-badge">NYU Steinhardt</span>
           <span class="hero-badge">NYU Paris '25</span>
           <span class="hero-badge">NYU Shanghai '25</span>
+          <span class="hero-badge">NYU Accra '26</span>
           <span class="hero-badge">PhotoVogue Featured</span>
           <span class="hero-badge">Dean's List x3</span>
         </div>
@@ -1734,8 +1785,7 @@
             <div class="wt-tag" style="color:var(--rose-light)">E-Book · AI · Taiwanese Cuisine</div>
             <div class="wt-title">呷飽未 <em>Have You Eaten?</em></div>
             <div class="wt-desc">An e-book reimagining 5 Taiwanese dishes through AI — using Pika.art to animate
-              hand-drawn
-              sketches into motion, probing the dilemma and inevitability of AI in creative culture.</div>
+              hand-drawn sketches into motion, probing the dilemma and inevitability of AI in creative culture.</div>
           </div>
         </div>
       </div>
@@ -1757,9 +1807,30 @@
       </div>
       <div class="exp-grid">
 
-        <!-- CONDÉ NAST -->
+        <!-- DENTSU -->
         <div class="exp-card reveal">
-          <div class="exp-period">Jun 2025 – Aug 2025</div>
+          <div class="exp-current-badge">Current Role</div>
+          <div class="exp-period">2026 - Present</div>
+          <div class="exp-company">Dentsu</div>
+          <div class="exp-role">Marketing Intern · dentsuX</div>
+          <div class="exp-location">◎ Taipei, Taiwan</div>
+          <ul class="exp-bullets">
+            <li>Tracked competitor campaigns and category trends for clients across beauty, fashion, and mobility
+              sectors</li>
+            <li>Analyzed product launches, brand activations, social content, and consumer engagement tactics</li>
+            <li>Researched influencer partners to support client campaign planning</li>
+            <li>Prepared monthly client reports synthesizing social listening data and market observations</li>
+          </ul>
+          <div class="exp-clients">
+            <span class="exp-client-tag">L'OCCITANE</span>
+            <span class="exp-client-tag">GU</span>
+            <span class="exp-client-tag">Gogoro</span>
+          </div>
+        </div>
+
+        <!-- CONDÉ NAST -->
+        <div class="exp-card reveal reveal-delay-1">
+          <div class="exp-period">Jun 2025 - Aug 2025</div>
           <div class="exp-company">Condé Nast</div>
           <div class="exp-role">Consumer Marketing Intern</div>
           <div class="exp-location">◎ Taipei, Taiwan</div>
@@ -1767,16 +1838,12 @@
             <li>Drove 1M+ cumulative views across GQ Style Fest editorial and commercial campaigns</li>
             <li>Grew Instagram by 1,000+ followers in one week using platform-native copy and timing tests</li>
             <li>Owned social calendars, copy, scheduling, and community moderation targeting Gen Z</li>
-            <li>Analyzed performance via Google Analytics and Meta Business Suite; implemented weekly optimizations</li>
-            <li>Researched micro-community leaders; presented partnership potentials to senior staff</li>
+            <li>Analyzed performance via Google Analytics and Meta Business Suite</li>
             <li>Scripted artist ID lines and edited short-form videos achieving 1M+ cross-platform views</li>
           </ul>
-
-          <!-- ── PUBLISHED ARTICLES ── -->
           <div class="exp-articles">
             <div class="exp-articles-label">Published · GQ &amp; Vogue Taiwan</div>
             <div class="article-links">
-
               <a class="article-link"
                 href="https://www.gq.com.tw/article/2025-gq-style-fest-%E6%BD%AE%E6%B5%81%E6%96%87%E5%8C%96%E7%A5%AD%E7%89%B9%E5%88%A5%E5%A0%B1%E5%B0%8E"
                 target="_blank" rel="noopener">
@@ -1784,21 +1851,12 @@
                 <span class="article-link-title">2025 GQ Style Fest 潮流文化祭 — 特別報導</span>
                 <span class="article-link-arrow">↗</span>
               </a>
-
               <a class="article-link" href="https://www.vogue.com.tw/article/2025-gq-stylefest" target="_blank"
                 rel="noopener">
                 <span class="article-link-pub">Vogue TW</span>
                 <span class="article-link-title">2025 GQ Style Fest — Vogue Coverage</span>
                 <span class="article-link-arrow">↗</span>
               </a>
-
-              <a class="article-link" href="https://www.gq.com.tw/article/2025-gq-style-fest-preview" target="_blank"
-                rel="noopener">
-                <span class="article-link-pub">GQ TW</span>
-                <span class="article-link-title">2025 GQ Style Fest Preview</span>
-                <span class="article-link-arrow">↗</span>
-              </a>
-
               <a class="article-link"
                 href="https://www.gq.com.tw/article/2025gq%E6%BD%AE%E6%B5%81%E6%96%87%E5%8C%96%E7%A5%AD%E6%BD%AE%E6%B5%81%E7%BE%8E%E9%A3%9F%E5%B8%82%E9%9B%86%E5%A4%A7%E5%85%AC%E9%96%8B%E5%BF%85%E5%90%83%E8%A9%B1%E9%A1%8C%E7%BE%8E%E9%A3%9F%E9%99%90%E5%AE%9A%E8%81%AF%E5%90%8D%E4%BD%B3%E9%A4%9Avip-%E5%B0%88%E5%B1%AC%E9%A4%90%E9%A3%9F%E4%B8%80%E6%AC%A1%E7%9C%8B"
                 target="_blank" rel="noopener">
@@ -1806,46 +1864,38 @@
                 <span class="article-link-title">潮流美食市集大公開 — 必吃話題美食 &amp; VIP 專屬餐飲</span>
                 <span class="article-link-arrow">↗</span>
               </a>
-
             </div>
           </div>
-          <!-- ── END ARTICLES ── -->
-
         </div>
 
-        <!-- NADA HOLDINGS -->
-        <div class="exp-card reveal reveal-delay-1">
-          <div class="exp-period">Nov 2023 – Dec 2023</div>
-          <div class="exp-company">Nada Holdings</div>
-          <div class="exp-role">Licensing & Market Intern</div>
-          <div class="exp-location">◎ Taipei, Taiwan</div>
-          <ul class="exp-bullets">
-            <li>Evaluated 500+ anime titles and built a ranking system to forecast audience potential</li>
-            <li>Briefed licensing team with data-backed recommendations</li>
-            <li>Sourced Japan-language intelligence and identified a Taiwan comic IP for cooperation</li>
-            <li>Facilitated cross-border partnership discussions between Taiwan and Japan markets</li>
-          </ul>
-        </div>
-
-        <!-- RAVENEL ART GROUP -->
-        <div class="exp-card reveal reveal-delay-2">
-          <div class="exp-period">Aug 2023 – Oct 2023</div>
-          <div class="exp-company">Ravenel Art Group</div>
-          <div class="exp-role">Marketing Intern</div>
-          <div class="exp-location">◎ Taipei, Taiwan</div>
-          <ul class="exp-bullets">
-            <li>Reframed Instagram content to trend-anchored themes, lifting average engagement 5×</li>
-            <li>Broadened reach to younger demographics through targeted content strategy</li>
-            <li>Supported biannual auction logistics, preview events, and artwork photography QC</li>
-            <li>Produced bilingual (Chinese/English) bios for 50+ artists for digital and print catalogs</li>
-          </ul>
-          <div class="exp-art-strip">
-            <img src="assets/art1.png" alt="Ravenel Art 1" title="Ravenel Art Group — auction preview"
-              data-gallery="art" data-index="0">
-            <img src="assets/art2.png" alt="Ravenel Art 2" title="Ravenel Art Group — artwork photography"
-              data-gallery="art" data-index="1">
-            <img src="assets/art3.png" alt="Ravenel Art 3" title="Ravenel Art Group — event" data-gallery="art"
-              data-index="2">
+        <!-- NADA + RAVENEL stacked -->
+        <div style="display:flex;flex-direction:column;gap:1.5px;">
+          <div class="exp-card reveal reveal-delay-2">
+            <div class="exp-period">Nov 2023 - Dec 2023</div>
+            <div class="exp-company">Nada Holdings</div>
+            <div class="exp-role">Licensing & Market Intern</div>
+            <div class="exp-location">◎ Taipei, Taiwan</div>
+            <ul class="exp-bullets">
+              <li>Evaluated 500+ anime titles and built a ranking system to forecast audience potential</li>
+              <li>Sourced Japan-language intelligence and identified a Taiwan comic IP for cooperation</li>
+              <li>Facilitated cross-border partnership discussions between Taiwan and Japan markets</li>
+            </ul>
+          </div>
+          <div class="exp-card reveal reveal-delay-2">
+            <div class="exp-period">Aug 2023 - Oct 2023</div>
+            <div class="exp-company">Ravenel Art Group</div>
+            <div class="exp-role">Marketing Intern</div>
+            <div class="exp-location">◎ Taipei, Taiwan</div>
+            <ul class="exp-bullets">
+              <li>Reframed Instagram content to trend-anchored themes, lifting average engagement 5×</li>
+              <li>Supported biannual auction logistics, preview events, and artwork photography QC</li>
+              <li>Produced bilingual (Chinese/English) bios for 50+ artists for digital and print catalogs</li>
+            </ul>
+            <div class="exp-art-strip">
+              <img src="assets/art1.png" alt="Ravenel Art 1" data-gallery="art" data-index="0">
+              <img src="assets/art2.png" alt="Ravenel Art 2" data-gallery="art" data-index="1">
+              <img src="assets/art3.png" alt="Ravenel Art 3" data-gallery="art" data-index="2">
+            </div>
           </div>
         </div>
 
@@ -1869,8 +1919,8 @@
           <div class="win-label">Campaign Views at Condé Nast</div>
         </div>
         <div class="win-card reveal reveal-delay-1">
-          <div class="win-num">5×</div>
-          <div class="win-label">Engagement lift at Ravenel</div>
+          <div class="win-num">5x</div>
+          <div class="win-label">Engagement Lift at Ravenel</div>
         </div>
         <div class="win-card reveal reveal-delay-2">
           <div class="win-num">500+</div>
@@ -1888,7 +1938,7 @@
           <div class="context-label">Content Strategy Win</div>
           <div class="context-title">Ravenel Audience Expansion</div>
           <div class="context-desc">Shifted Ravenel's Instagram strategy from existing collectors to younger
-            demographics by incorporating trending themes like "Dopamine Dressing" — resulting in a 5× average
+            demographics by incorporating trending themes like "Dopamine Dressing" — resulting in a 5x average
             engagement increase.</div>
         </div>
       </div>
@@ -1910,36 +1960,47 @@
           <div class="skill-group reveal">
             <div class="skill-group-label">Marketing</div>
             <div class="skill-tags">
-              <span class="skill-tag">Social Media Strategy</span><span class="skill-tag">Content Creation</span><span
-                class="skill-tag">Community Management</span><span class="skill-tag">Campaign Execution</span><span
-                class="skill-tag">Brand Research</span><span class="skill-tag">Influencer Research</span><span
-                class="skill-tag">Competitor Analysis</span><span class="skill-tag">Gen Z Marketing</span>
+              <span class="skill-tag">Social Media Strategy</span>
+              <span class="skill-tag">Content Creation</span>
+              <span class="skill-tag">Community Management</span>
+              <span class="skill-tag">Campaign Execution</span>
+              <span class="skill-tag">Competitor Research</span>
+              <span class="skill-tag">Influencer Research</span>
+              <span class="skill-tag">Social Listening</span>
+              <span class="skill-tag">Gen Z Marketing</span>
             </div>
           </div>
           <div class="skill-group reveal reveal-delay-1">
             <div class="skill-group-label">Platforms & Tools</div>
             <div class="skill-tags">
-              <span class="skill-tag">Google Analytics</span><span class="skill-tag">Meta Business Suite</span><span
-                class="skill-tag">Instagram</span><span class="skill-tag">TikTok</span><span
-                class="skill-tag">Xiaohongshu</span><span class="skill-tag">Excel (Pivot Tables)</span><span
-                class="skill-tag">Adobe Ps / Ai / Lr</span><span class="skill-tag">CapCut</span><span
-                class="skill-tag">SPSS</span><span class="skill-tag">HTML / JS (basic)</span><span
-                class="skill-tag">Rhinoceros 3D</span><span class="skill-tag">Blender</span><span
-                class="skill-tag">Grasshopper</span>
+              <span class="skill-tag">Google Analytics</span>
+              <span class="skill-tag">Meta Business Suite</span>
+              <span class="skill-tag">Instagram</span>
+              <span class="skill-tag">TikTok</span>
+              <span class="skill-tag">Xiaohongshu</span>
+              <span class="skill-tag">Excel (Pivot Tables)</span>
+              <span class="skill-tag">Adobe Ps / Ai / Lr</span>
+              <span class="skill-tag">CapCut</span>
+              <span class="skill-tag">Blender</span>
             </div>
           </div>
           <div class="skill-group reveal reveal-delay-2">
             <div class="skill-group-label">Domains</div>
             <div class="skill-tags">
-              <span class="skill-tag">Anime & Entertainment</span><span class="skill-tag">Luxury & Art</span><span
-                class="skill-tag">Media Publishing</span><span class="skill-tag">Fashion</span><span
-                class="skill-tag">Food & Lifestyle</span><span class="skill-tag">Short-form Video</span><span
-                class="skill-tag">3D & Spatial Design</span>
+              <span class="skill-tag">Integrated Marketing</span>
+              <span class="skill-tag">Anime & Entertainment</span>
+              <span class="skill-tag">Luxury & Art</span>
+              <span class="skill-tag">Media Publishing</span>
+              <span class="skill-tag">Fashion</span>
+              <span class="skill-tag">Food & Lifestyle</span>
+              <span class="skill-tag">Short-form Video</span>
             </div>
           </div>
           <div class="lang-row reveal reveal-delay-3">
-            <span class="lang-pill">Mandarin — Native</span><span class="lang-pill">English — Native</span><span
-              class="lang-pill">Japanese — Elementary</span><span class="lang-pill">French — Elementary</span>
+            <span class="lang-pill">Mandarin — Native</span>
+            <span class="lang-pill">English — Native</span>
+            <span class="lang-pill">Japanese — Elementary</span>
+            <span class="lang-pill">French — Elementary</span>
           </div>
         </div>
         <div class="reveal reveal-delay-1">
@@ -1949,8 +2010,12 @@
             <div class="edu-degree">B.S., Media, Culture & Communication<br>Minors: Business of Entertainment, Media &
               Technology; Interactive Media Arts</div>
             <div class="edu-gpa">GPA 3.86 · Dean's List (Spring, Summer, Fall 2024)</div>
-            <div class="edu-away">Study Away: NYU Paris, Spring 2025 (Dean's List)<br>Study Away: NYU Shanghai, Fall
-              2025 (Dean's List)<br>Expected Graduation: May 2027</div>
+            <div class="edu-away">
+              Study Away: NYU Paris, Spring 2025 (Dean's List)<br>
+              Study Away: NYU Shanghai, Fall 2025 (Dean's List)<br>
+              Study Away: NYU Accra, Winter 2026 — Research<br>
+              Expected Graduation: May 2027
+            </div>
           </div>
         </div>
       </div>
@@ -1973,7 +2038,7 @@
         <a href="https://www.tiktok.com/@angelinafish12" target="_blank" rel="noopener" class="media-card reveal">
           <div class="media-platform"><span class="platform-dot tiktok"></span>TikTok · @angelinafish12</div>
           <div class="media-card-title">Short-Form Video Creator</div>
-          <div class="media-card-desc">Produces trend-driven, lifestyle content spanning dance challenges, campus life,
+          <div class="media-card-desc">Produces trend-driven lifestyle content spanning dance challenges, campus life,
             and cultural moments. Experience collaborating with others for higher reach and engagement.</div>
           <div class="media-stat">10.2K</div>
           <div class="media-stat-lbl">Followers · 549.3K Likes</div>
@@ -1984,18 +2049,14 @@
           <div class="media-platform"><span class="platform-dot xhs"></span>Xiaohongshu (Red Note)</div>
           <div class="media-card-title">Food & Lifestyle Blogger</div>
           <div class="media-card-desc">Shares food and lifestyle content spanning Taipei, New York, Paris, Shanghai, and
-            Japan — covering everything from neighborhood ramen spots to fine dining across cultures. Beyond personal
-            recommendations, actively collaborates with restaurants on promotional campaigns, combining authentic
-            storytelling with branded content that drives real foot traffic and social buzz.</div>
+            Japan — from neighborhood ramen spots to fine dining. Actively collaborates with restaurants on promotional
+            campaigns, combining authentic storytelling with branded content that drives real foot traffic and social
+            buzz.</div>
           <div class="xhs-thumbs">
-            <img class="xhs-thumb" src="assets/red1.png" alt="Xiaohongshu food post 1" data-gallery="xhs"
-              data-index="0">
-            <img class="xhs-thumb" src="assets/red2.png" alt="Xiaohongshu food post 2" data-gallery="xhs"
-              data-index="1">
-            <img class="xhs-thumb" src="assets/red3.png" alt="Xiaohongshu food post 3" data-gallery="xhs"
-              data-index="2">
-            <img class="xhs-thumb" src="assets/red4.png" alt="Xiaohongshu food post 4" data-gallery="xhs"
-              data-index="3">
+            <img class="xhs-thumb" src="assets/red1.png" alt="Xiaohongshu post 1" data-gallery="xhs" data-index="0">
+            <img class="xhs-thumb" src="assets/red2.png" alt="Xiaohongshu post 2" data-gallery="xhs" data-index="1">
+            <img class="xhs-thumb" src="assets/red3.png" alt="Xiaohongshu post 3" data-gallery="xhs" data-index="2">
+            <img class="xhs-thumb" src="assets/red4.png" alt="Xiaohongshu post 4" data-gallery="xhs" data-index="3">
           </div>
           <div class="media-stat" style="margin-top:1rem">47K+</div>
           <div class="media-stat-lbl">Views on top post · <a href="https://xhslink.com/m/6Pjq8dfgeCU" target="_blank"
@@ -2008,7 +2069,7 @@
           <div class="media-platform"><span class="platform-dot photo"></span>PhotoVogue · VSCO</div>
           <div class="media-card-title">Photographer</div>
           <div class="media-card-desc">Work featured on PhotoVogue under the "Culture" theme. Ricoh GR2 & iPhone 13 Pro.
-            Click a thumbnail to view full image.</div>
+            Click a thumbnail to view.</div>
           <div class="photo-thumbs">
             <img class="photo-thumb" src="assets/image1.png" alt="Photo 1" data-gallery="photo" data-index="0">
             <img class="photo-thumb" src="assets/image2.png" alt="Photo 2" data-gallery="photo" data-index="1">
@@ -2036,8 +2097,7 @@
         </div>
       </div>
       <div class="cosplay-layout">
-        <div class="cos-card reveal" data-gallery="cos" data-index="0" style="cursor:pointer" tabindex="0"
-          aria-label="View Reze cosplay">
+        <div class="cos-card reveal" data-gallery="cos" data-index="0" tabindex="0" aria-label="View Reze cosplay">
           <div class="cos-play-badge">Video</div>
           <video class="cos-video" autoplay muted loop playsinline>
             <source src="assets/bomb.mp4" type="video/mp4">
@@ -2050,7 +2110,7 @@
         </div>
         <div class="cos-card reveal reveal-delay-1" data-gallery="cos" data-index="1" tabindex="0"
           aria-label="View Frieren cosplay">
-          <img class="cos-img" src="assets/cos2.png" alt="Cosplay as Frieren from Frieren: Beyond Journey's End">
+          <img class="cos-img" src="assets/cos2.png" alt="Cosplay as Frieren">
           <div class="cos-overlay"></div>
           <div class="cos-info">
             <div class="cos-character">Frieren</div>
@@ -2059,7 +2119,7 @@
         </div>
         <div class="cos-card reveal reveal-delay-2" data-gallery="cos" data-index="2" tabindex="0"
           aria-label="View Asuka cosplay">
-          <img class="cos-img" src="assets/cos3.png" alt="Cosplay as Asuka from Neon Genesis Evangelion">
+          <img class="cos-img" src="assets/cos3.png" alt="Cosplay as Asuka">
           <div class="cos-overlay"></div>
           <div class="cos-info">
             <div class="cos-character">Asuka Langley Soryu</div>
@@ -2092,30 +2152,30 @@
           <div class="lship-org"><a href="https://www.sda17.org/" target="_blank" rel="noopener">SDA17 · sda17.org ↗</a>
           </div>
           <div class="lship-desc">Organized and hosted a stray dog adoption and awareness event, connecting local
-            shelters with the community. Supported and co-executed additional community programs — handling logistics,
-            outreach, and on-site coordination to ensure smooth, impactful experiences for all attendees.</div>
+            shelters with the community. Co-executed additional community programs — handling logistics, outreach, and
+            on-site coordination.</div>
         </div>
         <div class="leadership-card reveal reveal-delay-1">
           <div class="lship-period">Oct 2024 – Present</div>
           <div class="lship-role">Media Officer</div>
           <div class="lship-org"><a href="https://www.instagram.com/nyu.jca/" target="_blank" rel="noopener">Japanese
               Cultural Association @ NYU</a></div>
-          <div class="lship-desc">Develops and designs Instagram-first campaigns to promote events, grow campus
-            engagement, and connect students around Japanese culture and anime communities.</div>
+          <div class="lship-desc">Develops Instagram-first campaigns to promote events and connect students around
+            Japanese culture and anime communities.</div>
         </div>
         <div class="leadership-card reveal reveal-delay-2">
           <div class="lship-period">Oct 2024 – Present</div>
           <div class="lship-role">Communication Coordinator</div>
           <div class="lship-org">Steinhardt International Programming Advocacy Committee</div>
           <div class="lship-desc">Leads multi-channel outreach across social media and newsletters. Produces short-form
-            content and branded assets to drive program participation and international awareness.</div>
+            content and branded assets to drive program participation.</div>
         </div>
         <div class="leadership-card reveal reveal-delay-3">
           <div class="lship-period">Oct 2024 – Jan 2026</div>
           <div class="lship-role">Marketing Coordinator</div>
           <div class="lship-org">Fusion Film Festival @ NYU</div>
-          <div class="lship-desc">Creates and publishes Instagram content and visuals to amplify festival programming,
-            strengthen audience reach, and build brand identity across the NYU community.</div>
+          <div class="lship-desc">Created and published Instagram content and visuals to amplify festival programming
+            and build brand identity across the NYU community.</div>
         </div>
       </div>
     </div>
@@ -2125,9 +2185,9 @@
   <section id="contact">
     <div class="container">
       <div class="contact-eyebrow">Let's Connect</div>
-      <h2 class="contact-h2">Open to <em>internships</em></h2>
-      <p class="contact-sub">Looking for Fall 2026 marketing, communication, or brand intern roles. Based in NYC and
-        TPE, open to remote and hybrid.</p>
+      <h2 class="contact-h2">Open to <em>Fall internships</em></h2>
+      <p class="contact-sub">Seeking Fall 2026 marketing, communications, or brand roles. Based in Taipei now, NYC-based
+        during the school year. Open to remote and hybrid.</p>
       <a href="mailto:angelinachen0312@gmail.com" class="contact-email">angelinachen0312@gmail.com</a>
       <div class="contact-links">
         <a href="tel:+13328674168" class="contact-link">+1 (332) 867-4168</a>
@@ -2144,25 +2204,20 @@
   <footer>© 2026 Angelina Chen (Jia-Jhih Chen) · NYU Steinhardt · Manhattan, NY</footer>
 
   <script>
-    // TICKER
-    const ITEMS = ['Consumer Marketing Intern', '·', 'Condé Nast', '·', 'NYU Steinhardt', '·', 'GPA 3.86', '·', 'Dean\'s List', '·', 'Content Strategy', '·', 'Gen Z Marketing', '·', 'Short-Form Video', '·', 'Social Media', '·', 'Xiaohongshu', '·', 'TikTok', '·', 'PhotoVogue Featured', '·', 'Bilingual (EN/ZH)', '·', 'Anime & Licensing', '·', 'Art Market', '·', 'Cosplay', '·', 'SDA17', '·', 'AI x Taiwanese Cuisine', '·', '呷飽未 Have You Eaten? E-Book', '·'];
+    const ITEMS = ['Marketing Intern', '·', 'dentsuX · Dentsu Taiwan', '·', 'Condé Nast', '·', 'NYU Steinhardt', '·', 'GPA 3.86', '·', "Dean's List", '·', 'Content Strategy', '·', 'Gen Z Marketing', '·', 'Social Listening', '·', 'Xiaohongshu', '·', 'TikTok', '·', 'PhotoVogue Featured', '·', 'Bilingual (EN/ZH)', '·', 'Anime & Licensing', '·', 'Art Market', '·', 'Cosplay', '·', 'NYU Accra', '·', 'Seeking Fall 2026', '·'];
     const tickerEl = document.getElementById('ticker');
     tickerEl.innerHTML = (ITEMS.map(t => `<span class="ticker-item">${t}</span>`).join('')).repeat(2);
     let x = 0;
     (function animTicker() { x -= 0.5; if (Math.abs(x) >= tickerEl.scrollWidth / 2) x = 0; tickerEl.style.transform = `translateX(${x}px)`; requestAnimationFrame(animTicker); })();
 
-    // NAV
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50), { passive: true });
 
-    // SMOOTH SCROLL
     document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => { const t = document.querySelector(a.getAttribute('href')); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); } }));
 
-    // REVEAL
     const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    // UNIFIED LIGHTBOX
     const GALLERIES = {
       photo: [
         { src: 'assets/image1.png', caption: 'Photography · Angelina Chen · 1 / 5' },
@@ -2177,14 +2232,14 @@
         { src: 'assets/art3.png', caption: 'Ravenel Art Group · 3 / 3' },
       ],
       xhs: [
-        { src: 'assets/red1.png', caption: 'Xiaohongshu · Food @ Taiwan · 1 / 4' },
-        { src: 'assets/red2.png', caption: 'Xiaohongshu · Food @ New York · 2 / 4' },
-        { src: 'assets/red3.png', caption: 'Xiaohongshu · Food @ Taipei · 3 / 4' },
-        { src: 'assets/red4.png', caption: 'Xiaohongshu · Food @ Barcelona · 4 / 4' },
+        { src: 'assets/red1.png', caption: 'Xiaohongshu · Food & Lifestyle · 1 / 4' },
+        { src: 'assets/red2.png', caption: 'Xiaohongshu · Food & Lifestyle · 2 / 4' },
+        { src: 'assets/red3.png', caption: 'Xiaohongshu · Food & Lifestyle · 3 / 4' },
+        { src: 'assets/red4.png', caption: 'Xiaohongshu · Food & Lifestyle · 4 / 4' },
       ],
       cos: [
-        { src: 'assets/cos1.png', caption: 'Cosplay · Reze — Chainsaw Man · 1 / 3' },
-        { src: 'assets/cos2.png', caption: 'Cosplay · Frieren — Beyond Journey\'s End · 2 / 3' },
+        { src: 'assets/cos1.png', caption: "Cosplay · Reze — Chainsaw Man · 1 / 3" },
+        { src: 'assets/cos2.png', caption: "Cosplay · Frieren — Beyond Journey's End · 2 / 3" },
         { src: 'assets/cos3.png', caption: 'Cosplay · Asuka — Neon Genesis Evangelion · 3 / 3' },
       ],
     };
@@ -2212,10 +2267,7 @@
     }
 
     document.querySelectorAll('[data-gallery]').forEach(el => {
-      el.addEventListener('click', e => {
-        e.stopPropagation();
-        openLb(el.dataset.gallery, parseInt(el.dataset.index, 10));
-      });
+      el.addEventListener('click', e => { e.stopPropagation(); openLb(el.dataset.gallery, parseInt(el.dataset.index, 10)); });
     });
 
     const photoCard = document.getElementById('photo-card');
