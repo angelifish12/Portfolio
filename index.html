@@ -1264,6 +1264,21 @@
       transition: opacity 0.4s;
     }
 
+    .cos-preview {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.45s ease;
+      z-index: 1;
+    }
+
+    .cos-card:hover .cos-preview {
+      opacity: 1;
+    }
+
     .cos-overlay {
       position: absolute;
       inset: 0;
@@ -1987,6 +2002,7 @@
         <!-- CARD 1: Reze still (cos1.png) -->
         <div class="cos-card reveal" data-gallery="cos" data-index="0" tabindex="0" aria-label="View Reze cosplay">
           <img class="cos-img" src="assets/cos1.png" alt="Cosplay as Reze from Chainsaw Man">
+          <img class="cos-preview" src="assets/reze.jpg" alt="" aria-hidden="true">
           <div class="cos-overlay"></div>
           <div class="cos-info">
             <div class="cos-character">Reze</div>
@@ -2001,6 +2017,7 @@
           <video class="cos-video" autoplay muted loop playsinline>
             <source src="assets/bomb.mp4" type="video/mp4">
           </video>
+          <img class="cos-preview" src="assets/bomb.webp" alt="" aria-hidden="true">
           <div class="cos-overlay"></div>
           <div class="cos-info">
             <div class="cos-character">Bomb Devil <em style="font-style:italic;color:var(--gold)">(Reze)</em></div>
@@ -2012,6 +2029,7 @@
         <div class="cos-card reveal reveal-delay-2" data-gallery="cos" data-index="2" tabindex="0"
           aria-label="View Frieren cosplay">
           <img class="cos-img" src="assets/cos2.png" alt="Cosplay as Frieren">
+          <img class="cos-preview" src="assets/frieren.avif" alt="" aria-hidden="true">
           <div class="cos-overlay"></div>
           <div class="cos-info">
             <div class="cos-character">Frieren</div>
@@ -2023,6 +2041,7 @@
         <div class="cos-card reveal reveal-delay-3" data-gallery="cos" data-index="3" tabindex="0"
           aria-label="View Asuka cosplay">
           <img class="cos-img" src="assets/cos3.png" alt="Cosplay as Asuka">
+          <img class="cos-preview" src="assets/asuka.jpg" alt="" aria-hidden="true">
           <div class="cos-overlay"></div>
           <div class="cos-info">
             <div class="cos-character">Asuka Langley Soryu</div>
@@ -2035,6 +2054,7 @@
           aria-label="View Misa Amane cosplay">
           <img class="cos-img" src="assets/misa.png" alt="Cosplay as Misa Amane from Death Note"
             style="object-position: top;">
+          <img class="cos-preview" src="assets/misa.avif" alt="" aria-hidden="true">
           <div class="cos-overlay"></div>
           <div class="cos-info">
             <div class="cos-character">Misa Amane</div>

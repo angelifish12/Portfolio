@@ -512,7 +512,7 @@
             background: linear-gradient(135deg, rgba(218, 150, 249, 0.08), rgba(171, 120, 180, 0.04));
         }
 
-        /* Static preview-image background (Dear Dream Me) — mirrors card-video-bg but for a still image */
+        /* Static preview-image background (Dear Dream Self) — mirrors card-video-bg but for a still image */
         .card-photo-bg {
             position: absolute;
             inset: 0;
@@ -780,10 +780,10 @@
         <div class="scroll-hint reveal">Scroll to browse</div>
         <div class="carousel-row">
 
-            <!-- Dear Dream Me -->
+            <!-- Dear Dream Self -->
             <a class="project-card card-featured cc-lg reveal" href="https://angelifish12.github.io/CClab/project-b/"
                 target="_blank" rel="noopener">
-                <img class="card-photo-bg" src="assets/dear.png" alt="Dear Dream Me preview">
+                <img class="card-photo-bg" src="assets/dear.png" alt="Dear Dream Self preview">
                 <div class="card-overlay"></div>
                 <span class="card-arrow">↗</span>
                 <div class="card-num">01</div>
@@ -791,7 +791,7 @@
                     <div>
                         <div class="card-tag" style="color:var(--gold)"><span class="tag-dot"
                                 style="background:var(--gold)"></span>Interactive · ml5.js</div>
-                        <div class="card-title">Dear Dream <em>Me</em></div>
+                        <div class="card-title">Dear Dream <em>Self</em></div>
                         <div class="card-sub">Face Modification Web App · p5.js + ml5 FaceMesh · 2025</div>
                         <div class="card-desc">A live webcam experience built with p5.js and ml5's FaceMesh model,
                             tracking the viewer's face in real time and letting them distort, reshape, and reimagine
@@ -850,6 +850,29 @@
                 </div>
             </div>
 
+            <!-- Entropy -->
+            <a class="project-card card-featured cc-lg reveal" href="https://angelifish12.github.io/CommLab/entropy/"
+                target="_blank" rel="noopener">
+                <img class="card-photo-bg" src="assets/entropy.png" alt="Entropy preview">
+                <div class="card-overlay"></div>
+                <span class="card-arrow">↗</span>
+                <div class="card-num">04</div>
+                <div class="card-inner tall">
+                    <div>
+                        <div class="card-tag" style="color:var(--gold)"><span class="tag-dot"
+                                style="background:var(--gold)"></span>Interactive · Web Design</div>
+                        <div class="card-title">Entropy</div>
+                        <div class="card-sub">Click-Driven Interactive Piece · 2025</div>
+                        <div class="card-desc">An interactive web piece built entirely around clicking as the driving
+                            gesture — recreating the scene of entropy through my own visual definition, where each
+                            click pushes the composition further from order.</div>
+                        <div class="card-desc">Coded from the ground up, the piece treats disorder as something the
+                            viewer causes rather than just observes, turning a physics concept into a hands-on,
+                            cumulative experience.</div>
+                    </div>
+                </div>
+            </a>
+
         </div>
     </div>
 
@@ -898,9 +921,43 @@
                 </div>
             </div>
 
+            <!-- Bomb Devil (Reze) Cosplay -->
+            <div class="project-card card-video cc-xl reveal" style="min-height:440px">
+                <div class="card-overlay"></div>
+                <div class="card-num" style="color:rgba(196,219,212,0.06)">02</div>
+                <video class="card-video-bg" autoplay muted loop playsinline poster="assets/cos1.png">
+                    <source src="assets/bomb.mp4" type="video/mp4">
+                </video>
+                <div class="card-photo-inset">
+                    <img src="assets/cos1.png" alt="Bomb Devil (Reze) cosplay still">
+                    <div class="card-photo-inset-caption">Full costume &amp; prop build</div>
+                </div>
+                <div class="card-inner tall">
+                    <div>
+                        <div class="card-tag"><span class="tag-dot" style="background:var(--sage-light)"></span>3D ·
+                            Cosplay · Costume & Prop Fabrication</div>
+                        <div class="card-title">Bomb Devil <em>(Reze)</em></div>
+                        <div class="card-sub">Chainsaw Man · Rhinoceros 3D · 3D Printing · Costume Build</div>
+                        <div class="card-desc">A full cosplay build of Reze's Bomb Devil form, modeled in Rhinoceros
+                            3D and brought into physical form through 3D printing — the same parametric-to-physical
+                            pipeline used across my spatial design work, applied here to costume and prop
+                            fabrication.</div>
+                        <div class="card-desc">From digital sculpt to finished armor and props, the piece carries
+                            over the same attention to structure, fit, and form-making that drives the rest of my 3D
+                            practice.</div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-tools">
+                            <span class="tool-chip">Rhinoceros 3D</span><span class="tool-chip">3D Printing</span><span
+                                class="tool-chip">Costume Fabrication</span><span class="tool-chip">Prop Making</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Placeholder -->
             <div class="project-card card-placeholder cc-sm reveal" style="border-color:rgba(122,158,142,0.3)">
-                <div class="card-num" style="color:rgba(122,158,142,0.06)">02</div>
+                <div class="card-num" style="color:rgba(122,158,142,0.06)">03</div>
                 <div class="card-inner tall" style="min-height:440px">
                     <div
                         style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.15em;color:var(--muted);text-transform:uppercase;margin-bottom:0.75rem">
@@ -925,7 +982,7 @@
 
     <script>
         // TICKER
-        const ITEMS = ['Dear Dream Me', '·', '呷飽未 Have You Eaten?', '·', 'Synthetic Body', '·', 'When the Tooth Dropped', '·', 'p5.js', '·', 'ml5 FaceMesh', '·', 'Computer Vision', '·', 'Scroll Storytelling', '·', 'Rhinoceros 3D', '·', 'Grasshopper', '·', 'Blender', '·', 'Parametric Design', '·', 'AI × Taiwanese Cuisine', '·', 'Interactive Media', '·', '3D Printing', '·'];
+        const ITEMS = ['Dear Dream Self', '·', '呷飽未 Have You Eaten?', '·', 'Synthetic Body', '·', 'When the Tooth Dropped', '·', 'p5.js', '·', 'ml5 FaceMesh', '·', 'Computer Vision', '·', 'Scroll Storytelling', '·', 'Rhinoceros 3D', '·', 'Grasshopper', '·', 'Blender', '·', 'Parametric Design', '·', 'AI × Taiwanese Cuisine', '·', 'Interactive Media', '·', '3D Printing', '·'];
         const tickerEl = document.getElementById('ticker');
         tickerEl.innerHTML = (ITEMS.map(t => `<span class="ticker-item">${t}</span>`).join('')).repeat(2);
         let x = 0;
