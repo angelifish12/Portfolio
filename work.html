@@ -643,6 +643,65 @@
             border-color: var(--sage);
         }
 
+        /* GRAPHIC / POSTER CARD — image on top, copy below */
+        .card-poster {
+            background: var(--warm-white);
+            padding: 0;
+        }
+
+        .card-poster-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .card-poster:hover .card-poster-img {
+            transform: scale(1.04);
+        }
+
+        .card-poster .card-inner {
+            padding: 1.75rem 1.75rem 2rem;
+            min-height: unset;
+        }
+
+        .card-poster .card-num {
+            top: 1rem;
+            right: 1rem;
+            bottom: auto;
+            font-size: 2.5rem;
+        }
+
+        /* STAGE STRIP — sequence thumbnails for performance documentation */
+        .stage-strip {
+            display: flex;
+            gap: 0.85rem;
+            flex-wrap: wrap;
+        }
+
+        .stage-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stage-item img {
+            width: 76px;
+            height: 76px;
+            object-fit: cover;
+            border: 1.5px solid rgba(250, 247, 242, 0.25);
+        }
+
+        .stage-item-label {
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(250, 247, 242, 0.55);
+        }
+
         /* BACK BAR */
         .back-bar {
             background: var(--ink);
@@ -973,6 +1032,134 @@
         </div>
     </div>
 
+    <!-- GRAPHIC DESIGN & EVENTS -->
+    <div class="work-section">
+        <div class="row-label reveal">
+            <span class="row-label-text">Graphic Design & <em style="color:var(--rose)">Events</em></span>
+            <span class="row-label-sub">03</span>
+            <span class="row-label-line"></span>
+        </div>
+        <div class="scroll-hint reveal">Scroll to browse</div>
+        <div class="carousel-row">
+
+            <!-- Fruit Sando Event -->
+            <div class="project-card card-poster cc-sm reveal">
+                <img class="card-poster-img" src="assets/sando.png" alt="Fruit Sando Event graphic">
+                <div class="card-num">01</div>
+                <div class="card-inner">
+                    <div>
+                        <div class="card-tag" style="color:var(--rose)"><span class="tag-dot"
+                                style="background:var(--rose)"></span>Graphic Design · Event</div>
+                        <div class="card-title">Fruit Sando <em>Event</em></div>
+                        <div class="card-sub">Collab with taste:) · 2026</div>
+                        <div class="card-desc">Event graphic designed for a Fruit Sando collaboration event with
+                            taste:), used across social promotion for the collab.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Onigiri Making Event -->
+            <div class="project-card card-poster cc-sm reveal reveal-delay-1">
+                <img class="card-poster-img" src="assets/onigiri.png" alt="Onigiri making event graphic">
+                <div class="card-num">02</div>
+                <div class="card-inner">
+                    <div>
+                        <div class="card-tag" style="color:var(--rose)"><span class="tag-dot"
+                                style="background:var(--rose)"></span>Graphic Design · Event</div>
+                        <div class="card-title">Onigiri <em>Making</em></div>
+                        <div class="card-sub">Community Cooking Event · 2026</div>
+                        <div class="card-desc">Promotional graphic designed for an onigiri-making event, built to
+                            draw students in with a playful, food-forward visual identity.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabeyou Tuesday -->
+            <div class="project-card card-poster cc-sm reveal reveal-delay-2">
+                <img class="card-poster-img" src="assets/tabeyou.png" alt="Tabeyou Tuesday event graphic">
+                <div class="card-num">03</div>
+                <div class="card-inner">
+                    <div>
+                        <div class="card-tag" style="color:var(--rose)"><span class="tag-dot"
+                                style="background:var(--rose)"></span>Graphic Design · Recurring Event</div>
+                        <div class="card-title">Tabeyou <em>Tuesday</em></div>
+                        <div class="card-sub">Monthly Series · 2026</div>
+                        <div class="card-desc">Recurring monthly graphic built for the "Tabeyou Tuesday" series,
+                            designed as a consistent, recognizable visual identity across each edition.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instagram Reel -->
+            <a class="project-card card-featured cc-md reveal reveal-delay-3"
+                href="https://www.instagram.com/reel/DCuBd_RRwsE/" target="_blank" rel="noopener">
+                <div class="card-overlay"></div>
+                <span class="card-arrow">↗</span>
+                <div class="card-num">04</div>
+                <div class="card-inner tall">
+                    <div>
+                        <div class="card-tag" style="color:var(--gold)"><span class="tag-dot"
+                                style="background:var(--gold)"></span>Instagram Reel · Content</div>
+                        <div class="card-title">Community Event <em>Reel</em></div>
+                        <div class="card-sub">Instagram · 150K+ Views</div>
+                        <div class="card-desc">Short-form video content produced to promote community food events,
+                            reaching over 150,000 views on Instagram.</div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <!-- PERFORMANCE ART -->
+    <div class="work-section">
+        <div class="row-label reveal">
+            <span class="row-label-text">Performance <em style="color:var(--rose)">Art</em></span>
+            <span class="row-label-sub">04</span>
+            <span class="row-label-line"></span>
+        </div>
+        <div class="scroll-hint reveal">Scroll to browse</div>
+        <div class="carousel-row">
+
+            <div class="project-card card-featured cc-xl reveal" style="min-height:440px">
+                <img class="card-photo-bg" src="assets/eye.JPG" alt="Actions and Gestures performance closeup">
+                <div class="card-overlay"></div>
+                <div class="card-num">01</div>
+                <div class="card-inner tall">
+                    <div>
+                        <div class="card-tag" style="color:var(--gold)"><span class="tag-dot"
+                                style="background:var(--gold)"></span>Performance Art · Exhibition</div>
+                        <div class="card-title">Actions and <em>Gestures</em></div>
+                        <div class="card-sub">Group Exhibition · Shanghai, China · 2025</div>
+                        <div class="card-desc">A performance piece presented as part of the Actions and Gestures
+                            exhibition in Shanghai, China. The work involves applying paper cutouts of my own eyes —
+                            rendered in three different emotional expressions — directly onto my body.</div>
+                        <div class="card-desc">Through the repeated action of applying and removing each pair of
+                            eyes, the piece explores shifting emotional states, self-surveillance, and the layering
+                            (and stripping away) of identity in front of an audience.</div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="stage-strip">
+                            <div class="stage-item">
+                                <img src="assets/eye.JPG" alt="Performance stage 1 closeup">
+                                <span class="stage-item-label">Stage 1</span>
+                            </div>
+                            <div class="stage-item">
+                                <img src="assets/eye2.JPG" alt="Performance stage 2">
+                                <span class="stage-item-label">Stage 2</span>
+                            </div>
+                            <div class="stage-item">
+                                <img src="assets/eye3.JPG" alt="Performance stage 3">
+                                <span class="stage-item-label">Stage 3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <div class="back-bar">
         <p>See the full picture</p>
         <a href="index.html" class="back-link">← Back to Portfolio</a>
@@ -982,7 +1169,7 @@
 
     <script>
         // TICKER
-        const ITEMS = ['Dear Dream Self', '·', '呷飽未 Have You Eaten?', '·', 'Synthetic Body', '·', 'When the Tooth Dropped', '·', 'p5.js', '·', 'ml5 FaceMesh', '·', 'Computer Vision', '·', 'Scroll Storytelling', '·', 'Rhinoceros 3D', '·', 'Grasshopper', '·', 'Blender', '·', 'Parametric Design', '·', 'AI × Taiwanese Cuisine', '·', 'Interactive Media', '·', '3D Printing', '·'];
+        const ITEMS = ['Dear Dream Self', '·', '呷飽未 Have You Eaten?', '·', 'Synthetic Body', '·', 'When the Tooth Dropped', '·', 'p5.js', '·', 'ml5 FaceMesh', '·', 'Computer Vision', '·', 'Scroll Storytelling', '·', 'Rhinoceros 3D', '·', 'Grasshopper', '·', 'Blender', '·', 'Parametric Design', '·', 'AI × Taiwanese Cuisine', '·', 'Interactive Media', '·', '3D Printing', '·', 'Actions and Gestures', '·', 'Performance Art', '·', 'Graphic Design', '·', 'Event Branding', '·'];
         const tickerEl = document.getElementById('ticker');
         tickerEl.innerHTML = (ITEMS.map(t => `<span class="ticker-item">${t}</span>`).join('')).repeat(2);
         let x = 0;
