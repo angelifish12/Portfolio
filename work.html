@@ -61,29 +61,6 @@
             opacity: 0.5;
         }
 
-        /* TICKER */
-        .ticker-wrap {
-            background: var(--ink);
-            overflow: hidden;
-            padding: 0.6rem 0;
-            position: relative;
-            z-index: 50;
-        }
-
-        .ticker-inner {
-            display: flex;
-            white-space: nowrap;
-        }
-
-        .ticker-item {
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            color: var(--gold);
-            padding: 0 2rem;
-            flex-shrink: 0;
-            letter-spacing: 0.1em;
-        }
-
         /* NAV */
         nav {
             position: fixed;
@@ -805,10 +782,6 @@
 
 <body>
 
-    <div class="ticker-wrap" aria-hidden="true">
-        <div class="ticker-inner" id="ticker"></div>
-    </div>
-
     <nav id="nav">
         <a href="index.html" class="nav-logo">Angelina Chen</a>
         <ul class="nav-links">
@@ -1234,13 +1207,6 @@
     <footer>© 2026 Angelina Chen (Jia-Jhih Chen) · NYU Steinhardt · Manhattan, NY</footer>
 
     <script>
-        // TICKER
-        const ITEMS = ['Dear Dream Self', '·', '呷飽未 Have You Eaten?', '·', 'Synthetic Body', '·', 'When the Tooth Dropped', '·', 'p5.js', '·', 'ml5 FaceMesh', '·', 'Computer Vision', '·', 'Scroll Storytelling', '·', 'Rhinoceros 3D', '·', 'Grasshopper', '·', 'Blender', '·', 'Parametric Design', '·', 'AI × Taiwanese Cuisine', '·', 'Interactive Media', '·', '3D Printing', '·', 'Actions and Gestures', '·', 'Performance Art', '·', 'Graphic Design', '·', 'Event Branding', '·', 'Typhoon', '·', 'Blind', '·', 'Seat', '·'];
-        const tickerEl = document.getElementById('ticker');
-        tickerEl.innerHTML = (ITEMS.map(t => `<span class="ticker-item">${t}</span>`).join('')).repeat(2);
-        let x = 0;
-        (function animTicker() { x -= 0.5; if (Math.abs(x) >= tickerEl.scrollWidth / 2) x = 0; tickerEl.style.transform = `translateX(${x}px)`; requestAnimationFrame(animTicker); })();
-
         // NAV
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50), { passive: true });
