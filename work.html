@@ -184,6 +184,73 @@
             align-self: end;
         }
 
+        /* DOG CHAT */
+        .page-hero-side {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .dog-chat {
+            display: flex;
+            align-items: flex-end;
+            gap: 0.25rem;
+            opacity: 0;
+            animation: fadeUp 0.8s 0.5s ease forwards;
+        }
+
+        .dog-chat .doodle {
+            width: 120px;
+            height: auto;
+            flex-shrink: 0;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .bubble {
+            position: relative;
+            flex-shrink: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        /* braille outline, flipped so the tail points toward the dog on the right */
+        .bubble-art {
+            margin: 0;
+            font-family: "Segoe UI Symbol", "Apple Braille", "DejaVu Sans", monospace;
+            font-size: 13px;
+            line-height: 1.1;
+            white-space: pre;
+            color: var(--rose);
+            transform: scaleX(-1);
+            user-select: none;
+        }
+
+        .bubble-text {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 14% 16%;
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            line-height: 1.7;
+            letter-spacing: 0.04em;
+            color: var(--brown);
+        }
+
+        .bubble-text strong {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--ink);
+            letter-spacing: 0;
+        }
+
         /* SECTIONS */
         .work-section {
             max-width: 1200px;
@@ -894,8 +961,31 @@
             <div class="page-hero-eyebrow">Interactive & Spatial Work</div>
             <h1>My <em>work</em></h1>
         </div>
-        <p class="page-hero-desc">A closer look at the hands-on side of my practice: interactive
-            web experiences coded from the ground up, and 3D/parametric design work in Rhino and Blender.</p>
+        <div class="page-hero-side">
+            <p class="page-hero-desc">A closer look at the hands-on side of my practice: interactive
+                web experiences coded from the ground up, and 3D/parametric design work in Rhino and Blender.</p>
+            <div class="dog-chat">
+                <div class="bubble">
+                    <pre class="bubble-art" aria-hidden="true">⠀⠀⠀⠀⠀⠀⢀⣠⣤⣴⣶⣶⠿⠿⠿⠿⠿⠿⢶⣶⣦⣤⣄⡀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢀⣴⣾⠿⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠿⣷⣦⡀⠀⠀⠀
+⠀⢀⣴⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣦⡀⠀
+⢠⣿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣿⡄
+⣾⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣷
+⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿
+⠸⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⠇
+⠀⠙⢿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⡿⠋⠀
+⠀⠀⠀⠙⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣶⠿⠋⠀⠀⠀
+⠀⠀⠀⢰⣿⠀⠀⠀⠀⠀⢀⣶⣦⣤⣤⣤⣤⣴⣶⣶⠿⠿⠛⠉⠀⠀⠀⠀⠀⠀
+⠀⠀⣠⣿⠃⠀⢀⣠⣤⣾⠟⠋⠈⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⢿⣷⡾⠿⠟⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</pre>
+                    <div class="bubble-text">
+                        <strong>take a look around!</strong>
+                        <span>click the ▶ cards to watch</span>
+                    </div>
+                </div>
+                <img class="doodle" src="assets/cap2.gif" alt="Little dog doodle">
+            </div>
+        </div>
     </div>
 
     <!-- INTERACTIVE & CODE -->

@@ -375,6 +375,75 @@
       color: var(--muted);
     }
 
+    /* DOG DOODLES */
+    .doodle {
+      position: absolute;
+      height: auto;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .dog-chat {
+      position: absolute;
+      top: 9%;
+      right: 5%;
+      z-index: 2;
+      display: flex;
+      align-items: flex-end;
+      gap: 0.25rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 1s ease forwards;
+    }
+
+    .dog-chat .doodle {
+      position: static;
+      width: 130px;
+      flex-shrink: 0;
+    }
+
+    .bubble {
+      position: relative;
+      flex-shrink: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    /* braille outline, flipped so the tail points toward the dog on the right */
+    .bubble-art {
+      margin: 0;
+      font-family: "Segoe UI Symbol", "Apple Braille", "DejaVu Sans", monospace;
+      font-size: 13px;
+      line-height: 1.1;
+      white-space: pre;
+      color: var(--rose);
+      transform: scaleX(-1);
+      user-select: none;
+    }
+
+    .bubble-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 14% 16%;
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      line-height: 1.7;
+      letter-spacing: 0.04em;
+      color: var(--brown);
+    }
+
+    .bubble-text strong {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--ink);
+      letter-spacing: 0;
+    }
+
     @keyframes fadeUp {
       from {
         opacity: 0;
@@ -1670,6 +1739,28 @@
 
     <div class="hero-right">
       <div class="hero-deco-text">AC</div>
+      <div class="dog-chat">
+        <div class="bubble">
+          <pre class="bubble-art" aria-hidden="true">⠀⠀⠀⠀⠀⠀⢀⣠⣤⣴⣶⣶⠿⠿⠿⠿⠿⠿⢶⣶⣦⣤⣄⡀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢀⣴⣾⠿⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠿⣷⣦⡀⠀⠀⠀
+⠀⢀⣴⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣦⡀⠀
+⢠⣿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣿⡄
+⣾⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣷
+⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿
+⠸⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⠇
+⠀⠙⢿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⡿⠋⠀
+⠀⠀⠀⠙⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣶⠿⠋⠀⠀⠀
+⠀⠀⠀⢰⣿⠀⠀⠀⠀⠀⢀⣶⣦⣤⣤⣤⣤⣴⣶⣶⠿⠿⠛⠉⠀⠀⠀⠀⠀⠀
+⠀⠀⣠⣿⠃⠀⢀⣠⣤⣾⠟⠋⠈⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⢿⣷⡾⠿⠟⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</pre>
+          <div class="bubble-text">
+            <strong>welcome to my page!</strong>
+            <span>scroll around, say hi ✿</span>
+          </div>
+        </div>
+        <img class="doodle" src="assets/cap.gif" alt="Little dog doodle">
+      </div>
+
       <div class="hero-right-inner">
         <div class="hero-accent-card">
           <div class="hero-accent-card-label">Current Roles</div>
@@ -1686,7 +1777,7 @@
           <span class="hero-badge">NYU Steinhardt</span>
           <span class="hero-badge">NYU Paris '25</span>
           <span class="hero-badge">NYU Shanghai '25</span>
-          <span class="hero-badge">NYU Accra '27</span>
+          <span class="hero-badge">NYU Accra '26</span>
           <span class="hero-badge">PhotoVogue Featured</span>
           <span class="hero-badge">Dean's List x3</span>
         </div>
@@ -1770,11 +1861,11 @@
         <div class="exp-card reveal reveal-delay-1">
           <div class="exp-current-badge">Current Role</div>
           <div class="exp-period">Sep 2026 - Present</div>
-          <div class="exp-company">Chapter0</div>
+          <div class="exp-company">Chapter 0</div>
           <div class="exp-role">Graphic Design &amp; Social Media Intern</div>
           <div class="exp-location">◎ New York, NY</div>
           <ul class="exp-bullets">
-            <li>Co-designed the Chapter0 website, shaping its layout and visual identity.</li>
+            <li>Co-designed the Chapter 0 website, shaping its layout and visual identity.</li>
             <li>Manage the brand's Instagram and Xiaohongshu accounts, creating content and publishing for its NYC
               social-events community.</li>
           </ul>
@@ -1788,7 +1879,7 @@
               href="https://www.rednote.com/user/profile/658416b4000000001c03c07d?xsec_token=ABLyccFUpUM7zY7Xxp7iXqiNKUBi0gHN1qy8ojAnBVrfU=&xsec_source=pc_note"
               target="_blank" rel="noopener">
               <span class="article-link-pub">Red Note</span>
-              <span class="article-link-title">Chapter0 on Xiaohongshu</span>
+              <span class="article-link-title">Chapter 0 on Xiaohongshu</span>
               <span class="article-link-arrow">↗</span>
             </a>
           </div>
