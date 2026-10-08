@@ -489,7 +489,7 @@
             background: linear-gradient(135deg, rgba(218, 150, 249, 0.08), rgba(171, 120, 180, 0.04));
         }
 
-        /* Static preview-image background (Dear Dream Self) — mirrors card-video-bg but for a still image */
+        /* Static preview-image background — mirrors card-video-bg but for a still image */
         .card-photo-bg {
             position: absolute;
             inset: 0;
@@ -567,6 +567,37 @@
 
         .card-video .card-arrow {
             color: var(--sage-light);
+        }
+
+        /* "Click to watch" badge for cards that open a video */
+        .watch-badge {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            z-index: 4;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: white;
+            background: var(--rose);
+            padding: 0.4rem 0.8rem;
+            transition: background 0.2s, transform 0.2s;
+            pointer-events: none;
+        }
+
+        .watch-badge::before {
+            content: '▶';
+            font-size: 0.55rem;
+        }
+
+        .project-card[data-video]:hover .watch-badge {
+            background: var(--gold);
+            color: var(--ink);
+            transform: scale(1.05);
         }
 
         /* Inset photo — small still-image panel layered on top of a video card */
@@ -679,6 +710,64 @@
             color: rgba(250, 247, 242, 0.55);
         }
 
+        /* VIDEO MODAL */
+        .video-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(26, 18, 9, 0.94);
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .video-modal.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .video-modal video {
+            max-width: 90vw;
+            max-height: 78vh;
+            background: black;
+            display: block;
+        }
+
+        .video-modal-title {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(250, 247, 242, 0.55);
+        }
+
+        .video-modal-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            color: rgba(250, 247, 242, 0.5);
+            text-transform: uppercase;
+            cursor: pointer;
+            background: none;
+            border: 1px solid rgba(250, 247, 242, 0.15);
+            padding: 0.45rem 1rem;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .video-modal-close:hover {
+            color: var(--gold);
+            border-color: var(--gold);
+        }
+
         /* BACK BAR */
         .back-bar {
             background: var(--ink);
@@ -782,6 +871,13 @@
 
 <body>
 
+    <!-- VIDEO MODAL -->
+    <div class="video-modal" id="video-modal" role="dialog" aria-modal="true" aria-label="Video viewer">
+        <button class="video-modal-close" id="vm-close">✕ Close</button>
+        <video id="vm-video" controls playsinline></video>
+        <div class="video-modal-title" id="vm-title"></div>
+    </div>
+
     <nav id="nav">
         <a href="index.html" class="nav-logo">Angelina Chen</a>
         <ul class="nav-links">
@@ -836,16 +932,17 @@
                 </div>
             </a>
 
-            <!-- Tooth Fairy -->
-            <a class="project-card cc-md reveal" href="https://angelifish12.github.io/CommLab/tooth-fairy/"
-                target="_blank" rel="noopener">
+            <!-- Tooth Fairy (now with tooth.png cover) -->
+            <a class="project-card card-featured cc-md reveal"
+                href="https://angelifish12.github.io/CommLab/tooth-fairy/" target="_blank" rel="noopener">
+                <img class="card-photo-bg" src="assets/tooth.png" alt="When the Tooth Dropped cover">
                 <div class="card-overlay"></div>
                 <span class="card-arrow">↗</span>
                 <div class="card-num">02</div>
                 <div class="card-inner tall">
                     <div>
-                        <div class="card-tag" style="color:var(--rose)"><span class="tag-dot"
-                                style="background:var(--rose)"></span>Interactive · Web Story</div>
+                        <div class="card-tag" style="color:var(--gold)"><span class="tag-dot"
+                                style="background:var(--gold)"></span>Interactive · Web Story</div>
                         <div class="card-title">When the Tooth <em>Dropped</em></div>
                         <div class="card-sub">Scroll-Based Storytelling · 2025</div>
                         <div class="card-desc">A reimagining of the tooth fairy myth as a scroll-triggered web
@@ -858,9 +955,12 @@
                 </div>
             </a>
 
-            <!-- 呷飽未 -->
-            <div class="project-card card-video cc-xl reveal" style="min-height:440px">
+            <!-- 呷飽未 — click to watch video -->
+            <div class="project-card card-video cc-xl reveal" style="min-height:440px" data-video="assets/hye.mp4"
+                data-video-title="呷飽未 Have You Eaten? · AI-Assisted E-Book" tabindex="0" role="button"
+                aria-label="Watch the Have You Eaten video">
                 <div class="card-overlay"></div>
+                <div class="watch-badge">Click to watch</div>
                 <div class="card-num" style="color:rgba(196,219,212,0.05)">03</div>
                 <video class="card-video-bg" autoplay muted loop playsinline>
                     <source src="assets/hye.mp4" type="video/mp4">
@@ -918,9 +1018,12 @@
         <div class="scroll-hint reveal">Scroll to browse</div>
         <div class="carousel-row">
 
-            <!-- Synthetic Body -->
-            <div class="project-card card-video cc-xl reveal" style="min-height:440px">
+            <!-- Synthetic Body — click to watch video -->
+            <div class="project-card card-video cc-xl reveal" style="min-height:440px"
+                data-video="assets/synthetic_body.mp4" data-video-title="Synthetic Body · 3D Parametric Design"
+                tabindex="0" role="button" aria-label="Watch the Synthetic Body video">
                 <div class="card-overlay"></div>
+                <div class="watch-badge">Click to watch</div>
                 <div class="card-num" style="color:rgba(196,219,212,0.06)">01</div>
                 <video class="card-video-bg" autoplay muted loop playsinline poster="assets/hand.png">
                     <source src="assets/synthetic_body.mp4" type="video/mp4">
@@ -953,9 +1056,12 @@
                 </div>
             </div>
 
-            <!-- Bomb Devil (Reze) Cosplay -->
-            <div class="project-card card-video cc-xl reveal" style="min-height:440px">
+            <!-- Bomb Devil (Reze) Cosplay — click to watch video -->
+            <div class="project-card card-video cc-xl reveal" style="min-height:440px" data-video="assets/bomb.mp4"
+                data-video-title="Bomb Devil (Reze) · Costume &amp; Prop Build" tabindex="0" role="button"
+                aria-label="Watch the Bomb Devil video">
                 <div class="card-overlay"></div>
+                <div class="watch-badge">Click to watch</div>
                 <div class="card-num" style="color:rgba(196,219,212,0.06)">02</div>
                 <video class="card-video-bg" autoplay muted loop playsinline poster="assets/cos1.png">
                     <source src="assets/bomb.mp4" type="video/mp4">
@@ -1063,9 +1169,10 @@
                 </div>
             </div>
 
-            <!-- Instagram Reel -->
+            <!-- Instagram Reel (now with community.png cover) -->
             <a class="project-card card-featured cc-md reveal reveal-delay-3"
                 href="https://www.instagram.com/reel/DCuBd_RRwsE/" target="_blank" rel="noopener">
+                <img class="card-photo-bg" src="assets/community.png" alt="Community event reel cover">
                 <div class="card-overlay"></div>
                 <span class="card-arrow">↗</span>
                 <div class="card-num">04</div>
@@ -1223,6 +1330,45 @@
                     e.preventDefault();
                 }
             }, { passive: false });
+        });
+
+        // ── VIDEO MODAL ──
+        // Any card with data-video opens a full-size player with controls and sound.
+        const vm = document.getElementById('video-modal');
+        const vmVideo = document.getElementById('vm-video');
+        const vmTitle = document.getElementById('vm-title');
+
+        function openVideo(src, title) {
+            vmVideo.src = src;
+            vmTitle.textContent = title || '';
+            vm.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            const p = vmVideo.play();
+            if (p && p.catch) p.catch(() => { });
+        }
+
+        function closeVideo() {
+            vmVideo.pause();
+            vmVideo.removeAttribute('src');
+            vmVideo.load();
+            vm.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('[data-video]').forEach(card => {
+            card.addEventListener('click', () => openVideo(card.dataset.video, card.dataset.videoTitle));
+            card.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openVideo(card.dataset.video, card.dataset.videoTitle);
+                }
+            });
+        });
+
+        document.getElementById('vm-close').addEventListener('click', closeVideo);
+        vm.addEventListener('click', e => { if (e.target === vm) closeVideo(); });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && vm.classList.contains('open')) closeVideo();
         });
     </script>
 </body>
